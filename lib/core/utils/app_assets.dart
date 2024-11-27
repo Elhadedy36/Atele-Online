@@ -2,5 +2,8 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesSplashatele
+  /// assets/images/splashatele.jpg
+  static const String imagesSplashatele = "assets/images/splashatele.jpg";
 }
 
