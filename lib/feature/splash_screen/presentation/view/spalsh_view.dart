@@ -1,4 +1,5 @@
 import 'package:atele_online/app/atele_online.dart';
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,9 @@ class _SpalshViewState extends State<SpalshView> {
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(const Duration(seconds: 10),()
+    Future.delayed(const Duration(seconds: 5),()
     {
-      //navigate to login screen
+    customNavigaeReplacement(context, path: '/onboarding');
     });
     super.initState();
   }
@@ -26,23 +27,31 @@ class _SpalshViewState extends State<SpalshView> {
     return Scaffold
     (
       backgroundColor: AppColors.primaryColor,
-      body:Align(
-        alignment: Alignment.bottomCenter,
-        child: Container
-        (
-          width: 500.w,
-          height: 500.h, 
-          
-          decoration: const BoxDecoration
+      body:Stack(
+        children: [Align(
+          alignment: Alignment.center,
+          child: Container
           (
-            image: const DecorationImage
+            width: double.infinity,
+            height: double.infinity, 
+            
+            decoration: const BoxDecoration
             (
-              image: AssetImage(Assets.imagesSplashatele),
-              fit: BoxFit.cover
-            )
+              image: const DecorationImage
+              (
+                image: AssetImage(Assets.imagesSplash2),
+                fit: BoxFit.cover
+              )
+            ),
+          
           ),
-        
         ),
+        
+        Positioned(
+          top: 400.h,
+          left: 170.w,
+          child: CircularProgressIndicator())
+        ]
       ) ,
     );
   }
