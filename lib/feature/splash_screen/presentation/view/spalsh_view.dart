@@ -1,4 +1,5 @@
 import 'package:atele_online/app/atele_online.dart';
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,9 @@ class _SpalshViewState extends State<SpalshView> {
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(const Duration(seconds: 10),()
+    Future.delayed(const Duration(seconds: 2),()
     {
-      //navigate to login screen
+    customNavigaeReplacement(context, path: '/HoomNavBar');
     });
     super.initState();
   }
