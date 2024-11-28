@@ -1,3 +1,4 @@
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ title: Text('Atele Online',style: TextStyle(fontWeight: FontWeight.bold,fontSize
         SliverToBoxAdapter(child: CustomTextFormField(labelText:  'Password'),),
         SliverSizedBox( 16.h),
         SliverToBoxAdapter(child: CustomBtn(text: 'Sign In', color: AppColors.primaryColor, textcolor: AppColors.secondaryColor,onPressed: (){},),),
-        SliverToBoxAdapter(child: HaveAnAccountWidget(text1: 'Dont have an account ?',text2: ' Sign Up',),)
+        SliverToBoxAdapter(child: HaveAnAccountWidget(text1: 'Dont have an account ?',text2: ' Sign Up',onTap: (){customNavigaeReplacement(context, path: '/signup');},),)
           ],
         ),
       ),

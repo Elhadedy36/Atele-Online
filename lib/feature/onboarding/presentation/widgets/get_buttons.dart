@@ -21,7 +21,7 @@ if(currentIndex == onBoardingData.length - 1)
                         CustomBtn(
                           text: 'Create account',
                           onPressed: () { 
-                            customNavigaeReplacement(context, path:   '/signUp');}
+                            customNavigaeReplacement(context, path:   '/signup');}
                         ),
                         SizedBox(height: 16,),
                         GestureDetector(onTap: () {
@@ -31,7 +31,7 @@ if(currentIndex == onBoardingData.length - 1)
                     );
 }else
 {
-  return
+  return    
    CustomBtn(
                       text: 'next',
                       onPressed: () {

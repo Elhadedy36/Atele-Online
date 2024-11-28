@@ -37,7 +37,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               alignment: Alignment.topRight,
               child: SkipButton(
                 onTap: () {
-                  customNavigaeReplacement(context, path: '');
+                  customNavigaeReplacement(context, path: '/signin');
                 },
               ),
             ),
