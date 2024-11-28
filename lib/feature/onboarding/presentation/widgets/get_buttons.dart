@@ -25,8 +25,8 @@ if(currentIndex == onBoardingData.length - 1)
                         ),
                         SizedBox(height: 16,),
                         GestureDetector(onTap: () {
-                          customNavigaeReplacement(context,path:  '/signIn');
-                        },child: Text('AppStrings.loginNow',)),
+                          customNavigaeReplacement(context,path:  '/signin');
+                        },child: Text('Sign In Now',)),
                       ],
                     );
 }else
