@@ -1,4 +1,5 @@
 import 'package:atele_online/core/utils/app_colors.dart';
+import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/categories/presentation/views/categories_view.dart';
 import 'package:atele_online/feature/home/presentation/views/home_view.dart';
 import 'package:atele_online/feature/profile/views/profile_view.dart';
@@ -18,12 +19,12 @@ class HomeNavBarWidget extends StatelessWidget {
       items: _navBarsItems(),
       screens: _buildScreens(),
       navBarStyle: NavBarStyle.style12,
-      backgroundColor: AppColors.secondaryColor,
+      backgroundColor: AppColors.whiteColor,
       decoration: const NavBarDecoration(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
-        ),
+            // topLeft: Radius.circular(10),
+            // topRight: Radius.circular(10),
+            ),
       ),
     );
   }
@@ -31,7 +32,6 @@ class HomeNavBarWidget extends StatelessWidget {
 
 List<Widget> _buildScreens() {
   return [
-  
     const HomeView(),
     const CategoriesView(),
     const ProfileView(),
@@ -42,20 +42,20 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
   return [
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.home),
-      title: ("Home"),
-      activeColorPrimary: AppColors.primaryColor,
+      title: (AppStrings.home),
+      activeColorPrimary: AppColors.blackColor,
       inactiveColorPrimary: AppColors.greyColor,
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.now_widgets_rounded),
-      title: ("Categories"),
-      activeColorPrimary: AppColors.primaryColor,
+      title: (AppStrings.categories),
+      activeColorPrimary: AppColors.blackColor,
       inactiveColorPrimary: AppColors.greyColor,
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.person),
-      title: ("Profile"),
-      activeColorPrimary: AppColors.primaryColor,
+      title: (AppStrings.profile),
+      activeColorPrimary: AppColors.blackColor,
       inactiveColorPrimary: AppColors.greyColor,
     ),
   ];

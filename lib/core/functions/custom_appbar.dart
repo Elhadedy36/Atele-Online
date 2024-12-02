@@ -6,13 +6,13 @@ PreferredSizeWidget customAppBar({
   List<Widget>? actions,
 }) {
   return AppBar(
-    elevation: 1.3,
+    elevation: 0.2,
     iconTheme: const IconThemeData(color: AppColors.greyColor),
     actionsIconTheme: const IconThemeData(color: AppColors.greyColor),
-    shadowColor: Colors.grey,
+    shadowColor: Colors.white,
     title: Text(title,style: const TextStyle(color: AppColors.greyColor)),
     centerTitle: true,
-    backgroundColor: AppColors.secondaryColor,
+    backgroundColor: AppColors.whiteColor,
 actions: actions ??
         [
           IconButton(
