@@ -8,4 +8,8 @@ abstract class AppStrings
   static const String categories = 'Categories';
   static const String profile = 'Profile';
   static const String  offers = 'Offers';
+  static const String  eveningDress = 'Evening Dress';
+  static const String  weddingDress = 'Wedding Dress';
+  static const String  forSale = 'For Sale';
+  static const String  forRent = 'For Rent';
 }

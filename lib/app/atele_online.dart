@@ -13,6 +13,7 @@ class AteleOnline extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp.router(
+            
             debugShowCheckedModeBanner: false,
             routerConfig: router,
           );

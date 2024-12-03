@@ -1,4 +1,5 @@
 import 'package:atele_online/core/utils/app_assets.dart';
+import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,7 @@ class CustomPageViewHome extends StatelessWidget {
             itemBuilder: (context, index) => Container(
                   decoration: BoxDecoration(
                     border: Border.all(
-                        color: const Color.fromARGB(255, 221, 221, 217),
+                        color: AppColors.borderColor,
                         width: 2),
                     // borderRadius: BorderRadius.circular(10.r),
                     image: DecorationImage(
