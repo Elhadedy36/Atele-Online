@@ -1,4 +1,5 @@
 import 'package:atele_online/core/functions/custom_toast.dart';
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
@@ -18,6 +19,7 @@ class SignupForm extends StatelessWidget {
         if(state is SignUpSuccess)
         {
           showToast('Signed in successfully');
+          customNavigaeReplacement(context, path: '/signin');
         }
         else if(state is SignUpError)
         {

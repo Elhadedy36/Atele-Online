@@ -18,7 +18,7 @@ class _SpalshViewState extends State<SpalshView> {
     // TODO: implement initState
     Future.delayed(const Duration(seconds: 2),()
     {
-    customNavigaeReplacement(context, path: '/HoomNavBar');
+    customNavigaeReplacement(context, path: '/signin');
     });
     super.initState();
   }
