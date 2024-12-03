@@ -45,7 +45,7 @@ class SignInForm extends StatelessWidget {
                   height: 12.h,
                 ),
               state is SignInLoading? const CircularProgressIndicator():  CustomBtn(
-                  text: AppStrings.SignIn,
+                  text: AppStrings.signIn,
                   onPressed: () 
                   {
                     if(context.read<AuthCubit>().SignInFormKey.currentState!.validate())

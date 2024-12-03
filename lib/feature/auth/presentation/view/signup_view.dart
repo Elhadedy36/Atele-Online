@@ -38,7 +38,7 @@ class SignUpView extends StatelessWidget {
             SliverToBoxAdapter(
               child: HaveAnAccountWidget(
                 text1: 'Already have an account ?',
-                text2: AppStrings.SignIn,
+                text2: AppStrings.signIn,
                 onTap: () {
                   customNavigaeReplacement(context, path: '/signin');
                 },

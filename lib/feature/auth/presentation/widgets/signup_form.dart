@@ -59,7 +59,7 @@ class SignupForm extends StatelessWidget {
                   height: 12.h,
                 ),
               state is SignUpLoading? const CircularProgressIndicator():  CustomBtn(
-                  text: AppStrings.SignUp,
+                  text: AppStrings.signUp,
                   onPressed: () 
                   {
                     if(context.read<AuthCubit>().SignUpFormKey.currentState!.validate())
