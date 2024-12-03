@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "906979460302",
+    "project_id": "dalel-ca09b",
+    "storage_bucket": "dalel-ca09b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906979460302:android:ee22ba34ac27d8cba4fc9f",
+        "android_client_info": {
+          "package_name": "com.example.atele_online"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKPeQlXTITEGqe0XabOaZNukhS7Bym7aQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
