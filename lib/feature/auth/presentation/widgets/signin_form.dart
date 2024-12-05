@@ -1,3 +1,4 @@
+import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/custom_toast.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
@@ -19,6 +20,7 @@ class SignInForm extends StatelessWidget {
         if(state is SignInSuccess)
         {
           showToast('Signed in successfully');
+          CacheHelper().saveData(key:'isSignedIn', value: true);
           customNavigaeReplacement(context, path: '/HoomNavBar');
         }
         else if(state is SignInError)

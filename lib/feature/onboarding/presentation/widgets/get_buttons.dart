@@ -1,3 +1,4 @@
+import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
@@ -19,6 +20,8 @@ class GetButtons extends StatelessWidget {
           CustomBtn(
             text: 'Create account',
             onPressed: () {
+              CacheHelper().saveData(key: 'onboardingdone', value: true);
+
               customNavigaeReplacement(context, path: '/signup');
             },
             textcolor: AppColors.secondaryColor,
@@ -28,6 +31,8 @@ class GetButtons extends StatelessWidget {
           ),
           GestureDetector(
               onTap: () {
+                CacheHelper().saveData(key: 'onboardingdone', value: true);
+
                 customNavigaeReplacement(context, path: '/signin');
               },
               child: Text(

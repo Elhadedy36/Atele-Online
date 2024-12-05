@@ -1,4 +1,5 @@
 import 'package:atele_online/app/atele_online.dart';
+import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
@@ -18,7 +19,17 @@ class _SpalshViewState extends State<SpalshView> {
     // TODO: implement initState
     Future.delayed(const Duration(seconds: 2),()
     {
-    customNavigaeReplacement(context, path: '/onboarding');
+    bool isonboard =  CacheHelper().getData(key: 'onboardingdone')??false;
+    if(isonboard){
+      CacheHelper().getData(key: 'isSignedIn') == null
+          ? customNavigaeReplacement(context, path: '/signin')
+          : CacheHelper().getData(key: 'isSignedIn')
+              ? customNavigaeReplacement(context, path: '/HoomNavBar')
+              : customNavigaeReplacement(context, path: '/signin');
+              }else
+              {
+                customNavigaeReplacement(context, path: '/onboarding');
+              }
     });
     super.initState();
   }

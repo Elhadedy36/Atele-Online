@@ -1,3 +1,4 @@
+import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/feature/onboarding/presentation/widgets/custo_nav_bar.dart';
 import 'package:atele_online/feature/onboarding/presentation/widgets/custom_smooth_page_indicator.dart';
@@ -37,6 +38,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               alignment: Alignment.topRight,
               child: SkipButton(
                 onTap: () {
+                  CacheHelper().saveData(key: 'onboardingdone', value: true);
                   customNavigaeReplacement(context, path: '/signin');
                 },
               ),
