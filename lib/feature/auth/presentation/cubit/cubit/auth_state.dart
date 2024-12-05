@@ -23,3 +23,9 @@ final class SignOutError extends AuthState {
   final String errmsg;
   SignOutError(this.errmsg);
 }
+
+final class EmailVerificationsuccess extends AuthState {}
+final class EmailVerificationError extends AuthState {
+  final String errmsg;
+  EmailVerificationError(this.errmsg);
+}

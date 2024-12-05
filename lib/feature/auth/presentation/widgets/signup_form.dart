@@ -16,9 +16,9 @@ class SignupForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return  BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if(state is SignUpSuccess)
+        if(state is EmailVerificationsuccess)
         {
-          showToast('Signed in successfully');
+          showToast('check your email');
           customNavigaeReplacement(context, path: '/signin');
         }
         else if(state is SignUpError)

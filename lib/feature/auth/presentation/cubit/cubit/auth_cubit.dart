@@ -1,4 +1,6 @@
+import 'package:atele_online/feature/auth/data/user_model.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -8,7 +10,6 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  
   GlobalKey<FormState> SignUpFormKey = GlobalKey<FormState>();
   GlobalKey<FormState> SignInFormKey = GlobalKey<FormState>();
   TextEditingController email_in = TextEditingController();
@@ -21,10 +22,7 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController messageController = TextEditingController();
   ScrollController scrollController = ScrollController();
   GlobalKey<FormState> scrollkey = GlobalKey<FormState>();
-
-
-
-
+  final user = FirebaseFirestore.instance.collection('Users');
 
   SignInWithEmailAndPassword() async {
     try {
@@ -42,11 +40,40 @@ class AuthCubit extends Cubit<AuthState> {
       emit(SignUpLoading());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email_up.text, password: password_up.text);
-     
-      emit(SignUpSuccess());
+          emit(SignUpSuccess());
+
+      await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+      emit(EmailVerificationsuccess());
+      bool emailVerified = false;
+      while (!emailVerified) {
+        await Future.delayed(const Duration(seconds: 5));
+        await FirebaseAuth.instance.currentUser!.reload();
+        emailVerified = await FirebaseAuth.instance.currentUser!.emailVerified;
+        if (emailVerified) {
+          addUser(UserModel(
+            fristname: fristname.text,
+            lastname: lastname.text,
+            phone: phone_num.text,
+            uId: FirebaseAuth.instance.currentUser!.uid,
+            email: email_up.text,
+          ));
+        }
+      }
+
+      
     } on FirebaseAuthException catch (e) {
       emit(SignUpError(e.code));
     }
+  }
+
+  addUser(UserModel userModel) async {
+    await user.add({
+      'fristname': userModel.fristname,
+      'lastname': userModel.lastname,
+      'phone': userModel.phone,
+      'uId': userModel.uId,
+      'email': userModel.email,
+    });
   }
 
   SignOut() async {
@@ -55,8 +82,7 @@ class AuthCubit extends Cubit<AuthState> {
       await FirebaseAuth.instance.signOut();
       emit(SignOutSuccess());
     } on Exception catch (e) {
-      emit(SignOutError( e.toString()));
+      emit(SignOutError(e.toString()));
     }
   }
-
 }
