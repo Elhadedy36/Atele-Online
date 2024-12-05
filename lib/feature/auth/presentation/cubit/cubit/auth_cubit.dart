@@ -12,6 +12,7 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> SignUpFormKey = GlobalKey<FormState>();
   GlobalKey<FormState> SignInFormKey = GlobalKey<FormState>();
   TextEditingController email_in = TextEditingController();
+  TextEditingController phone_num = TextEditingController();
   TextEditingController password_in = TextEditingController();
   TextEditingController email_up = TextEditingController();
   TextEditingController password_up = TextEditingController();

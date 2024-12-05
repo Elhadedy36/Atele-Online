@@ -53,6 +53,13 @@ class SignupForm extends StatelessWidget {
                 SizedBox(
                   height: 12.h,
                 ),
+                 CustomTextFormField(
+                  labelText: 'Phone Number',
+                  controller: context.read<AuthCubit>().phone_num,
+                ),
+                SizedBox(
+                  height: 12.h,
+                ),
                 CustomTextFormField(
                   labelText: 'Password',
                   controller: context.read<AuthCubit>().password_up,
