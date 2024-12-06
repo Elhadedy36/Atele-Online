@@ -14,11 +14,12 @@ abstract class AppStrings {
 }
 
 abstract class FirebaseStrings {
-  static const String users = 'users';
+  static const String users = 'Users';
   static const String userId = 'userId';
   static const String email = 'email';
   static const String password = 'password';
-  static const String name = 'name';
+  static const String  fristname = 'frist name';
+  static const String  lastname = 'last name';
   static const String phone = 'phone';
   static const String address = 'address';
   static const String createdAt = 'createdAt';
