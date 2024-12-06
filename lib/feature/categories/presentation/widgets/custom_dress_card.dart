@@ -26,7 +26,7 @@ class CustomDressCard extends StatelessWidget {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ItemView(data: listItemDetalis[index],),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ItemView(),));
                   },
                   child: Column(
                     children: [
