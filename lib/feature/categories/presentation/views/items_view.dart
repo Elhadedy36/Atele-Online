@@ -1,4 +1,5 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/feature/categories/data/model/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,10 +14,9 @@ final extraData = GoRouter.of(context).state!.extra as CategoryModel;
 
     return Scaffold(
       endDrawer: const Drawer(),
-      appBar:customAppBar(title: 'Dress Details'),
+      appBar: customAppBar(title: 'Dress Details'),
       body: ListView(
-      children: [
-        
+        children: [
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
             child: Container(
@@ -38,7 +38,7 @@ final extraData = GoRouter.of(context).state!.extra as CategoryModel;
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
           )),
-            Center(
+          Center(
               child: Text(
             extraData.categoryName,
             style: const TextStyle(
@@ -46,7 +46,7 @@ final extraData = GoRouter.of(context).state!.extra as CategoryModel;
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
           )),
-            Center(
+          Center(
               child: Text(
             extraData.categoryName,
             style: const TextStyle(
@@ -54,16 +54,16 @@ final extraData = GoRouter.of(context).state!.extra as CategoryModel;
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
           )),
-            Center(
+          Center(
               child: Text(
             extraData.categoryName,
             style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
           )),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 110,),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 110,
+            ),
             child: MaterialButton(
                 color: Colors.black,
                 onPressed: () {},
@@ -75,11 +75,15 @@ final extraData = GoRouter.of(context).state!.extra as CategoryModel;
                       fontSize: 18),
                 )),
           ),
-            Container(
-            margin: const EdgeInsets.symmetric(horizontal: 110, ),
+          Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: 110,
+            ),
             child: MaterialButton(
                 color: Colors.black,
-                onPressed: () {},
+                onPressed: () {
+                  customNavigate(context, path: '/DataAndTimeView');
+                },
                 child: const Text(
                   'Buy Now',
                   style: TextStyle(
