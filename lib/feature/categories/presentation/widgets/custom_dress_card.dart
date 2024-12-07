@@ -4,17 +4,20 @@ import 'package:atele_online/feature/categories/presentation/views/items_view.da
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 class CustomDressCard extends StatelessWidget {
+  
   const CustomDressCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 16.h),
+        Container(height: 16.h),
         SizedBox(
           height: 555.h,
           child: GridView.builder(
+            
               
               itemCount: listItemDetalis.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
