@@ -1,5 +1,6 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
+import 'package:atele_online/core/widgets/custom_drawer.dart';
 import 'package:atele_online/core/widgets/custom_header_text.dart';
 import 'package:atele_online/feature/home/presentation/widgets/custom_animated_typer_text.dart';
 import 'package:atele_online/feature/home/presentation/widgets/custom_page_view.home.dart';
@@ -12,7 +13,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawerEnableOpenDragGesture: true,
+      drawer: const CustomDrawerProfile(),
       appBar: customAppBar(
         title: AppStrings.home,
       ),
