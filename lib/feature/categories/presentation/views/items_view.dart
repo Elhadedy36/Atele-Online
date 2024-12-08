@@ -1,6 +1,7 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemView extends StatelessWidget {
   const ItemView({super.key, this.data});

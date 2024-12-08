@@ -1,5 +1,7 @@
 import 'package:atele_online/core/utils/app_strings.dart';
+import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/auth/data/user_model.dart';
+import 'package:atele_online/feature/categories/data/model/item_detalis.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -42,7 +44,7 @@ class AuthCubit extends Cubit<AuthState> {
       emit(SignUpLoading());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email_up.text, password: password_up.text);
-          emit(SignUpSuccess());
+      emit(SignUpSuccess());
 
       await FirebaseAuth.instance.currentUser!.sendEmailVerification();
       emit(EmailVerificationsuccess());
@@ -55,15 +57,13 @@ class AuthCubit extends Cubit<AuthState> {
           addUser(UserModel(
             fristname: fristname.text,
             lastname: lastname.text,
+            email: email_up.text,
             phone: phone_num.text,
             location: lacation_up.text,
             uId: FirebaseAuth.instance.currentUser!.uid,
-            email: email_up.text,
           ));
         }
       }
-
-      
     } on FirebaseAuthException catch (e) {
       emit(SignUpError(e.code));
     }
@@ -78,6 +78,34 @@ class AuthCubit extends Cubit<AuthState> {
       FirebaseStrings.userId: userModel.uId,
       FirebaseStrings.email: userModel.email,
     });
+  }
+
+  Future<void> addappointment(ItemDetalis data) async {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      final userappointment = FirebaseFirestore.instance
+          .collection('Users')
+          .doc(currentUser.uid)
+          .collection('Appointment');
+      
+      await userappointment.add({
+        FirebaseStrings.nameProduct: data.name,
+        FirebaseStrings.price: data.price,
+        FirebaseStrings.appointmentDate: DateTime.now(),
+        FirebaseStrings.descriptionProduct: data.description,
+        FirebaseStrings.sellerName: data.ateleName,
+      });
+
+      await FirebaseFirestore.instance.collection('Appointments').add({
+        FirebaseStrings.nameProduct: data.name,
+        FirebaseStrings.price: data.price,
+        FirebaseStrings.appointmentDate: DateTime.now(),
+        FirebaseStrings.descriptionProduct: data.description,
+        FirebaseStrings.sellerName: data.ateleName,
+      });
+    } else {
+      print('No user is signed in');
+    }
   }
 
   SignOut() async {

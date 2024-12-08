@@ -24,6 +24,7 @@ abstract class AppStrings {
 
 abstract class FirebaseStrings {
   static const String users = 'Users';
+  static const String users = 'Users';
   static const String userId = 'userId';
   static const String email = 'email';
   static const String password = 'password';
