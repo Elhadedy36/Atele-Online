@@ -1,3 +1,4 @@
+import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/auth/data/user_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,6 +18,7 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController password_in = TextEditingController();
   TextEditingController email_up = TextEditingController();
   TextEditingController password_up = TextEditingController();
+  TextEditingController lacation_up = TextEditingController();
   TextEditingController fristname = TextEditingController();
   TextEditingController lastname = TextEditingController();
   TextEditingController messageController = TextEditingController();
@@ -54,6 +56,7 @@ class AuthCubit extends Cubit<AuthState> {
             fristname: fristname.text,
             lastname: lastname.text,
             phone: phone_num.text,
+            location: lacation_up.text,
             uId: FirebaseAuth.instance.currentUser!.uid,
             email: email_up.text,
           ));
@@ -68,11 +71,12 @@ class AuthCubit extends Cubit<AuthState> {
 
   addUser(UserModel userModel) async {
     await user.doc(FirebaseAuth.instance.currentUser!.uid).set({
-      'fristname': userModel.fristname,
-      'lastname': userModel.lastname,
-      'phone': userModel.phone,
-      'uId': userModel.uId,
-      'email': userModel.email,
+      FirebaseStrings.fristname: userModel.fristname,
+      FirebaseStrings.lastname: userModel.lastname,
+      FirebaseStrings.phone: userModel.phone,
+      FirebaseStrings.location:userModel.location,
+      FirebaseStrings.userId: userModel.uId,
+      FirebaseStrings.email: userModel.email,
     });
   }
 

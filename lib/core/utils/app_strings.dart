@@ -23,7 +23,8 @@ abstract class FirebaseStrings {
   static const String userId = 'userId';
   static const String email = 'email';
   static const String password = 'password';
-  static const String name = 'name';
+  static const String fristname = 'fristname';
+  static const String lastname = 'lastname';
   static const String phone = 'phone';
   static const String address = 'Address';
   static const String createdAt = 'createdAt';
