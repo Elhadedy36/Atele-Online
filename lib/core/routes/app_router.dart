@@ -2,9 +2,9 @@ import 'package:atele_online/feature/auth/presentation/cubit/cubit/auth_cubit.da
 import 'package:atele_online/feature/auth/presentation/view/signin_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signup_view.dart';
 import 'package:atele_online/feature/categories/cubit/categories_cubit.dart';
-import 'package:atele_online/feature/categories/presentation/views/evening_dress_view.dart';
-import 'package:atele_online/feature/categories/presentation/views/items_view.dart';
-import 'package:atele_online/feature/categories/presentation/views/wedding_dress_view.dart';
+import 'package:atele_online/feature/store/presentation/views/evening_dress_view.dart';
+import 'package:atele_online/feature/store/presentation/views/items_view.dart';
+import 'package:atele_online/feature/store/presentation/views/wedding_dress_view.dart';
 import 'package:atele_online/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:atele_online/feature/home/presentation/widgets/custom_hoom_nav_bar.dart';
 import 'package:atele_online/feature/onboarding/presentation/view/onboarding_view.dart';

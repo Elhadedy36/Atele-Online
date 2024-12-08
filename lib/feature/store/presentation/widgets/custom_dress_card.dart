@@ -1,6 +1,6 @@
 import 'package:atele_online/core/utils/app_colors.dart';
-import 'package:atele_online/feature/categories/data/model/item_detalis.dart';
-import 'package:atele_online/feature/categories/presentation/views/items_view.dart';
+import 'package:atele_online/feature/store/data/model/item_detalis.dart';
+import 'package:atele_online/feature/store/presentation/views/items_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
