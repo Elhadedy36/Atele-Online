@@ -1,3 +1,4 @@
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class CustomDrawerProfile extends StatelessWidget {
             leading: const Icon(Icons.account_box),
             title: const Text('Account'),
             onTap: () {
-              // customNavigate(context, path: '/AccountView');
+              customNavigate(context, path: '/AccountView');
             },
           ),
           ListTile(

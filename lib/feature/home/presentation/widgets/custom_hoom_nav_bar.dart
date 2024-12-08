@@ -2,7 +2,7 @@ import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/categories/presentation/views/categories_view.dart';
 import 'package:atele_online/feature/home/presentation/views/home_view.dart';
-import 'package:atele_online/feature/profile/views/profile_view.dart';
+import 'package:atele_online/feature/profile/presentation/views/account_view.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
@@ -34,7 +34,7 @@ List<Widget> _buildScreens() {
   return [
     const HomeView(),
     const CategoriesView(),
-    const ProfileView(),
+    const AccountView(),
   ];
 }
 

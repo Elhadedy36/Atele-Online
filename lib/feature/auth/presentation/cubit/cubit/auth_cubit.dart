@@ -67,7 +67,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   addUser(UserModel userModel) async {
-    await user.add({
+    await user.doc(FirebaseAuth.instance.currentUser!.uid).set({
       'fristname': userModel.fristname,
       'lastname': userModel.lastname,
       'phone': userModel.phone,
