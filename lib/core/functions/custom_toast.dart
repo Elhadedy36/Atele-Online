@@ -7,9 +7,9 @@ showToast(
   Fluttertoast.showToast(
     msg: msg,
     toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.CENTER,
+    gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
-    backgroundColor: Colors.blueGrey,
+    backgroundColor: Colors.black,
     textColor: Colors.white,
     fontSize: 16.0,
   );
