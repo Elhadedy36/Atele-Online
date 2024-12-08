@@ -11,6 +11,10 @@ abstract class AppStrings {
   static const String weddingDress = 'Wedding Dress';
   static const String forSale = 'For Sale';
   static const String forRent = 'For Rent';
+  static const String appointment = 'Appointment';
+  static const String buyNow = 'Buy Now';
+  static const String totel = 'Totel';
+
 }
 
 abstract class FirebaseStrings {
@@ -21,7 +25,7 @@ abstract class FirebaseStrings {
   static const String  fristname = 'frist name';
   static const String  lastname = 'last name';
   static const String phone = 'phone';
-  static const String address = 'address';
+  static const String address = 'Address';
   static const String createdAt = 'createdAt';
   static const String appointments = 'appointments';
   static const String appointmentId = 'appointmentId';
@@ -30,7 +34,7 @@ abstract class FirebaseStrings {
   static const String productId = 'productId';
   static const String sellerId = 'sellerId';
   static const String appointmentDate = 'appointmentDate';
-  static const String depositPaid = 'depositPaid';
+  static const String depositPaid = 'DepositPaid';
   static const String status = 'status';
   static const String sellers = 'sellers';
   static const String storeName = 'storeName';
@@ -39,7 +43,7 @@ abstract class FirebaseStrings {
   static const String products = 'products';
   static const String nameProduct = 'nameProduct';
   static const String descriptionProduct = 'description';
-  static const String price = 'price';
+  static const String price = '\$500';
   static const String isForRent = 'isForRent';
   static const String depositAmount = 'depositAmount';
   static const String images = 'images';
