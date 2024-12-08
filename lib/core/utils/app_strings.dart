@@ -6,6 +6,7 @@ abstract class AppStrings {
   static const String helloDear = 'Hello dear';
   static const String categories = 'Categories';
   static const String profile = 'Profile';
+  static const String accountDetails = 'Account Details';
   static const String offers = 'Offers';
   static const String eveningDress = 'Evening Dress';
   static const String weddingDress = 'Wedding Dress';
@@ -18,11 +19,12 @@ abstract class AppStrings {
 }
 
 abstract class FirebaseStrings {
-  static const String users = 'users';
+  static const String users = 'Users';
   static const String userId = 'userId';
   static const String email = 'email';
   static const String password = 'password';
-  static const String name = 'name';
+  static const String fristname = 'fristname';
+  static const String lastname = 'lastname';
   static const String phone = 'phone';
   static const String address = 'Address';
   static const String createdAt = 'createdAt';
