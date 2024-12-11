@@ -5,7 +5,7 @@ import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
 import 'package:atele_online/core/widgets/custom_list_title.dart';
-import 'package:atele_online/feature/reservations/presentation/widget/custom_row_chackout.dart';
+import 'package:atele_online/core/widgets/custom_row.dart';
 import 'package:atele_online/feature/reservations/presentation/widget/custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,9 +38,16 @@ class ChackoutView extends StatelessWidget {
                 ),
               ),
               SliverSizedBox(130.h),
-              const SliverToBoxAdapter(
-                  child: CustomRowChackOut(
-                      title: AppStrings.totel, trallingText: '\$3000')),
+               SliverToBoxAdapter(
+                  child: CustomRow(
+                title: AppStrings.totel,
+                trallingText: '\$3000',
+                style1: TextStyle(
+                    color: Colors.orange,
+                    fontSize:30.sp, 
+                    fontWeight: FontWeight.bold),
+                style2: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              )),
               SliverSizedBox(16.h),
               SliverToBoxAdapter(
                 child: CustomBtn(

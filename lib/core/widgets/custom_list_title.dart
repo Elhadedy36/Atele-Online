@@ -1,6 +1,6 @@
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
-import 'package:atele_online/feature/reservations/presentation/widget/custom_row_chackout.dart';
+import 'package:atele_online/core/widgets/custom_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -56,14 +56,33 @@ class CustomListTile extends StatelessWidget {
                     ),
                   ),
                 ),
-                const CustomRowChackOut(
-                    title: FirebaseStrings.depositPaid,
-                    trallingText: FirebaseStrings.price),
-                const CustomRowChackOut(
-                    title: FirebaseStrings.address,
-                    trallingText: 'New Damietta'),
-                const CustomRowChackOut(
-                    title: 'Time&Date', trallingText: '3:30-20-12-2024'),
+                const CustomRow(
+                  title: FirebaseStrings.depositPaid,
+                  trallingText: FirebaseStrings.price,
+                  style1: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                  style2: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const CustomRow(
+                  title: FirebaseStrings.address,
+                  trallingText: 'New Damietta',
+                  style1: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                  style2: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const CustomRow(
+                  title: 'Time&Date',
+                  trallingText: '3:30-20-12-2024',
+                  style1: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                  style2: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
                 Divider(
                   color: Colors.grey[400],
                   thickness: 2.h,

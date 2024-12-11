@@ -39,7 +39,7 @@ abstract class FirebaseStrings {
   static const String productId = 'productId';
   static const String sellerId = 'sellerId';
   static const String appointmentDate = 'appointmentDate';
-  static const String depositPaid = 'DepositPaid';
+  static const String depositPaid = 'DepositPaid :';
   static const String status = 'status';
   static const String sellers = 'sellers';
   static const String storeName = 'storeName';
