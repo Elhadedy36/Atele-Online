@@ -10,6 +10,7 @@ import 'package:atele_online/feature/profile/presentation/views/account_view.dar
 import 'package:atele_online/feature/reservations/presentation/views/appointment_view.dart';
 import 'package:atele_online/feature/reservations/presentation/views/chackout_view.dart';
 import 'package:atele_online/feature/splash_screen/presentation/view/spalsh_view.dart';
+import 'package:atele_online/feature/store/presentation/views/items_view.dart';
 import 'package:atele_online/feature/store/presentation/widgets/store_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -55,4 +56,6 @@ final GoRouter router = GoRouter(routes: [
       builder: (context, state) => const Appointment()),
   GoRoute(
       path: '/ChackoutView', builder: (context, state) => const ChackoutView()),
+  GoRoute(
+      path: '/itemView', builder: (context, state) => const ItemView()),
 ]);

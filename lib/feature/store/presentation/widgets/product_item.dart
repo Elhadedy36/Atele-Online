@@ -1,4 +1,4 @@
-
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/feature/store/data/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +14,9 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () 
+      {
+        customNavigaeReplacement(context, path: '/itemView',extra: product);
       },
       child: Column(
         children: [
@@ -33,9 +35,7 @@ class ProductItem extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                      product.images.isNotEmpty
-                          ? product.images
-                          : ''),
+                      product.images.isNotEmpty ? product.images : ''),
                 ),
               ),
             ),
@@ -43,15 +43,18 @@ class ProductItem extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             product.description,
-            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey),
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.blueGrey),
           ),
           Text(
             "\$${product.depositeAmount}",
-            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.orange),
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.orange),
           ),
           Text(
             product.productName,
-            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ],
       ),
