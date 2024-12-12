@@ -14,7 +14,7 @@ final String location;
   fristname: json[FirebaseStrings.fristname],
   lastname: json[FirebaseStrings.lastname],
   email: json[FirebaseStrings.email],
-  phone: json[FirebaseStrings.phone], 
+  phone: json[FirebaseStrings.phoneNumber], 
   location: json[FirebaseStrings.location]  
   );
 }

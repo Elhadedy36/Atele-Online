@@ -38,7 +38,7 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
   editAccountDetails() async {
     await users.doc(FirebaseAuth.instance.currentUser!.uid).update({
       FirebaseStrings.fristname: nameControllerEdit.text,
-      FirebaseStrings.phone: phoneControllerEdit.text,
+      FirebaseStrings.phoneNumber: phoneControllerEdit.text,
       FirebaseStrings.location: cityControllerEdit.text,
     });
   }

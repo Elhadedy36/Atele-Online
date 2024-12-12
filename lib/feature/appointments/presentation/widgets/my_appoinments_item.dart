@@ -39,7 +39,7 @@ class MyAppoinmentsItem extends StatelessWidget {
               ),
               child: CustomRow(
                 title: FirebaseStrings.depositPaid,
-                trallingText: FirebaseStrings.price,
+                trallingText: FirebaseStrings.depositeAmount,
                 style1: TextStyle(
                     color: Colors.black,
                     fontSize: 12.sp,

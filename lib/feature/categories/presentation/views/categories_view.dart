@@ -1,7 +1,7 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_drawer.dart';
-import 'package:atele_online/feature/categories/presentation/widgets/custom_category_card.dart';
+import 'package:atele_online/feature/categories/presentation/widgets/category_item_builder.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -14,7 +14,14 @@ class CategoriesView extends StatelessWidget {
       drawer:const CustomDrawerProfile(),
 
       appBar: customAppBar(title: AppStrings.categories),
-      body: const CustomCategoryCard(),
-    );
+      body: CustomScrollView
+      (
+        slivers: 
+        [
+SliverToBoxAdapter(child: CategoryItemBuilder(path: '/StoreView',),)
+        ],
+      )
+      );
+      
   }
 }

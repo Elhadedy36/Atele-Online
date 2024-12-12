@@ -1,12 +1,17 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
+import 'package:atele_online/feature/categories/data/model/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ItemView extends StatelessWidget {
-  const ItemView({super.key, this.data});
-  final data;
+  const ItemView({super.key});
+ 
+
   @override
   Widget build(BuildContext context) {
+final extraData = GoRouter.of(context).state!.extra as CategoryModel;
+
     return Scaffold(
       endDrawer: const Drawer(),
       appBar: customAppBar(title: 'Dress Details'),
@@ -15,13 +20,11 @@ class ItemView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
             child: Container(
-                child: Image(
-              image: AssetImage(data.imageItem),
-            )),
+              child: Image(image: AssetImage(extraData.categoryImage),)),
           ),
           Center(
               child: Text(
-            data.description,
+            extraData.categoryName,
             style: const TextStyle(
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
@@ -29,7 +32,7 @@ class ItemView extends StatelessWidget {
           )),
           Center(
               child: Text(
-            data.price,
+            extraData.categoryName,
             style: const TextStyle(
                 color: Colors.orange,
                 fontWeight: FontWeight.bold,
@@ -37,7 +40,7 @@ class ItemView extends StatelessWidget {
           )),
           Center(
               child: Text(
-            data.ateleName,
+            extraData.categoryName,
             style: const TextStyle(
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
@@ -45,7 +48,7 @@ class ItemView extends StatelessWidget {
           )),
           Center(
               child: Text(
-            data.phone,
+            extraData.categoryName,
             style: const TextStyle(
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
@@ -53,7 +56,7 @@ class ItemView extends StatelessWidget {
           )),
           Center(
               child: Text(
-            data.address,
+            extraData.categoryName,
             style: const TextStyle(
                 color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
           )),
