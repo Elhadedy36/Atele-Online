@@ -17,8 +17,12 @@ class CustomRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: style1),
-        Text(trallingText, style: style2),
+        Text(title, style: style1,maxLines: 2,overflow: TextOverflow.ellipsis, ),
+        Row(
+          children: [
+            Text(trallingText, style: style2,),
+          ],
+        ),
       ],
     );
   }

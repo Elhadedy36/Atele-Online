@@ -31,7 +31,7 @@ final CategoryModel categmodel;
         ),
         
         child: Text(categmodel.categoryName,
-            style: CustomTextStyles.Pacifico300style34),
+            style: CustomTextStyles.pacifico300style34),
       ),
     );
   }
