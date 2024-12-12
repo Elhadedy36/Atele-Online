@@ -1,5 +1,7 @@
 import 'package:atele_online/core/widgets/custom_text_form_field.dart';
+import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
@@ -11,8 +13,6 @@ class CustomDateAndTime extends StatefulWidget {
   State<CustomDateAndTime> createState() => _CustomDateAndTimeState();
 }
 
-TextEditingController timeController=TextEditingController();
-TextEditingController dateController=TextEditingController();
 
 class _CustomDateAndTimeState extends State<CustomDateAndTime> {
     
@@ -23,21 +23,21 @@ class _CustomDateAndTimeState extends State<CustomDateAndTime> {
       child: Column(
         children: [
         CustomTextFormField(
-          controller: timeController,
+          controller: context.read<ReserveCubit>().timeController,
           labelText: 'pick your Time',
           
             onTap: ()async{
               var time=await showTimePicker(context: context, initialTime: TimeOfDay.now());
               if(time!=null){
                 setState(() {
-                 timeController.text=time.format(context);
+                 context.read<ReserveCubit>().timeController.text=time.format(context);
                 });
               }
             },
         ),
           SizedBox(height: 20.h,),
             CustomTextFormField(
-          controller: dateController,
+          controller: context.read<ReserveCubit>().dateController,
           labelText: 'pick your Date',
           
               onTap: ()async{
@@ -46,7 +46,7 @@ class _CustomDateAndTimeState extends State<CustomDateAndTime> {
               if(dateTime!=null){
                 String formattedDate= DateFormat('yyyy-MM-dd').format(dateTime);
                 setState(() {
-                 dateController.text=formattedDate;
+                 context.read<ReserveCubit>().dateController.text=formattedDate;
                  
                 });
               }

@@ -1,6 +1,7 @@
 import 'package:atele_online/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:atele_online/feature/auth/presentation/view/signin_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signup_view.dart';
+import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';
 import 'package:atele_online/feature/store/presentation/cubit/cubit/products_cubit.dart';
 import 'package:atele_online/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:atele_online/feature/home/presentation/widgets/custom_hoom_nav_bar.dart';
@@ -50,12 +51,17 @@ final GoRouter router = GoRouter(routes: [
             create: (context) => ProductsCubit(),
             child: const StoreTabViewBuilder(),
           )),
- 
   GoRoute(
       path: '/DataAndTimeView',
-      builder: (context, state) => const Appointment()),
+      builder: (context, state) => BlocProvider(
+            create: (context) => ReserveCubit(),
+            child: const Appointment(),
+          )),
   GoRoute(
-      path: '/ChackoutView', builder: (context, state) => const ChackoutView()),
-  GoRoute(
-      path: '/itemView', builder: (context, state) => const ItemView()),
+      path: '/ChackoutView',
+      builder: (context, state) => BlocProvider(
+            create: (context) => ReserveCubit(),
+            child: const ChackoutView(),
+          )),
+  GoRoute(path: '/itemView', builder: (context, state) => const ItemView()),
 ]);

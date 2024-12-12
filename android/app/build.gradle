@@ -11,7 +11,9 @@ plugins {
 android {
     namespace = "com.example.atele_online"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    
+    // Add this line to specify the required NDK version
+    ndkVersion = "27.0.12077973"  // Set to the version required by the plugins (change it as per your need)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
