@@ -223,7 +223,7 @@ class CustomChackOutCardWidget extends StatelessWidget {
                 horizontal: 24.w,
               ),
               child: CustomRow(
-                title: FirebaseStrings.price,
+                title: FirebaseStrings.depositeAmount,
                 trallingText: '\$2000',
                 style1: TextStyle(
                     color: Colors.pink,
@@ -243,7 +243,7 @@ class CustomChackOutCardWidget extends StatelessWidget {
                 horizontal: 24.w,
               ),
               child: CustomRow(
-                title: FirebaseStrings.deposit,
+                title: FirebaseStrings.depositeAmount,
                 trallingText: '\$500',
                 style1: TextStyle(
                     color: Colors.pink,
