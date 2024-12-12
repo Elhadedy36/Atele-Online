@@ -56,8 +56,6 @@ abstract class FirebaseStrings {
   static const String categoryName = 'categoryName';
   static const String categoryDescription = 'categoryDescription';
   static const String categoryImage = 'categoryImage';
-  static const String nameCategoryWedding = 'Wedding Dresses';
-  static const String namecategoryEvening = 'Evening Dresses';
   static const String descriptionCategoryWedding =
       'Elegant dresses for weddings';
   static const String descriptionCategoryEvening =

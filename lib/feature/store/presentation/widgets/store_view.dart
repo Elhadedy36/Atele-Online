@@ -1,15 +1,14 @@
-import 'dart:math';
 
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/categories/data/model/category_model.dart';
-import 'package:atele_online/feature/store/presentation/widgets/custom_dress_card.dart';
+import 'package:atele_online/feature/store/presentation/views/StoreView.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class StoreView extends StatelessWidget {
-  const StoreView({super.key});
+class StoreTabViewBuilder extends StatelessWidget {
+  const StoreTabViewBuilder({super.key});
 
   @override
 
@@ -32,14 +31,14 @@ class StoreView extends StatelessWidget {
             ]),
           ),
           body:  TabBarView(children: [
-          CustomDressCard
+          StoreView
           (
-            isForRent: true,
+            isForRent: false,
             categoryName: extraData.categoryName,
           ),
-            CustomDressCard
+            StoreView
             (
-              isForRent: false,
+              isForRent: true,
             categoryName: extraData.categoryName,
             ),
           ]),

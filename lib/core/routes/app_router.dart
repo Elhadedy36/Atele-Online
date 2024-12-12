@@ -1,10 +1,7 @@
 import 'package:atele_online/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:atele_online/feature/auth/presentation/view/signin_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signup_view.dart';
-import 'package:atele_online/feature/categories/cubit/categories_cubit.dart';
 import 'package:atele_online/feature/store/presentation/cubit/cubit/products_cubit.dart';
-import 'package:atele_online/feature/store/presentation/views/items_view.dart';
-import 'package:atele_online/feature/store/presentation/views/store_view.dart';
 import 'package:atele_online/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:atele_online/feature/home/presentation/widgets/custom_hoom_nav_bar.dart';
 import 'package:atele_online/feature/onboarding/presentation/view/onboarding_view.dart';
@@ -13,6 +10,7 @@ import 'package:atele_online/feature/profile/presentation/views/account_view.dar
 import 'package:atele_online/feature/reservations/presentation/views/appointment_view.dart';
 import 'package:atele_online/feature/reservations/presentation/views/chackout_view.dart';
 import 'package:atele_online/feature/splash_screen/presentation/view/spalsh_view.dart';
+import 'package:atele_online/feature/store/presentation/widgets/store_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -49,7 +47,7 @@ final GoRouter router = GoRouter(routes: [
       path: '/StoreView',
       builder: (context, state) => BlocProvider(
             create: (context) => ProductsCubit(),
-            child: const StoreView(),
+            child: const StoreTabViewBuilder(),
           )),
  
   GoRoute(

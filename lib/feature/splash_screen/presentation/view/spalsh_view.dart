@@ -1,4 +1,3 @@
-import 'package:atele_online/app/atele_online.dart';
 import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
