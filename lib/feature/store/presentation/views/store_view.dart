@@ -1,14 +1,21 @@
+import 'dart:math';
+
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
+import 'package:atele_online/feature/categories/data/model/category_model.dart';
 import 'package:atele_online/feature/store/presentation/widgets/custom_dress_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class WeddingDressView extends StatelessWidget {
-  const WeddingDressView({super.key});
+class StoreView extends StatelessWidget {
+  const StoreView({super.key});
 
   @override
+
   Widget build(BuildContext context) {
+    final extraData = GoRouter.of(context).state!.extra as CategoryModel;
+
     return DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -24,9 +31,17 @@ class WeddingDressView extends StatelessWidget {
               
             ]),
           ),
-          body: const TabBarView(children: [
-          CustomDressCard(),
-            CustomDressCard(),
+          body:  TabBarView(children: [
+          CustomDressCard
+          (
+            isForRent: true,
+            categoryName: extraData.categoryName,
+          ),
+            CustomDressCard
+            (
+              isForRent: false,
+            categoryName: extraData.categoryName,
+            ),
           ]),
         ));
   }

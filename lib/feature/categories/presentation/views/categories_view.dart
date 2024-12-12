@@ -18,7 +18,7 @@ class CategoriesView extends StatelessWidget {
       (
         slivers: 
         [
-SliverToBoxAdapter(child: CategoryItemBuilder(path: '/itemView',),)
+SliverToBoxAdapter(child: CategoryItemBuilder(path: '/StoreView',),)
         ],
       )
       );

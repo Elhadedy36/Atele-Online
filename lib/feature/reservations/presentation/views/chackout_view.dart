@@ -48,7 +48,7 @@ class ChackoutView extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: CustomRowChackOut(
                     title: FirebaseStrings.depositPaid,
-                    trallingText: FirebaseStrings.price),
+                    trallingText: FirebaseStrings.depositeAmount),
               ),
               SliverSizedBox(8.h),
               const SliverToBoxAdapter(

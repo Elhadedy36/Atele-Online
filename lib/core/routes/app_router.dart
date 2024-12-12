@@ -2,9 +2,9 @@ import 'package:atele_online/feature/auth/presentation/cubit/cubit/auth_cubit.da
 import 'package:atele_online/feature/auth/presentation/view/signin_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signup_view.dart';
 import 'package:atele_online/feature/categories/cubit/categories_cubit.dart';
-import 'package:atele_online/feature/store/presentation/views/evening_dress_view.dart';
+import 'package:atele_online/feature/store/presentation/cubit/cubit/products_cubit.dart';
 import 'package:atele_online/feature/store/presentation/views/items_view.dart';
-import 'package:atele_online/feature/store/presentation/views/wedding_dress_view.dart';
+import 'package:atele_online/feature/store/presentation/views/store_view.dart';
 import 'package:atele_online/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:atele_online/feature/home/presentation/widgets/custom_hoom_nav_bar.dart';
 import 'package:atele_online/feature/onboarding/presentation/view/onboarding_view.dart';
@@ -46,15 +46,12 @@ final GoRouter router = GoRouter(routes: [
             child: const HomeNavBarWidget(),
           )),
   GoRoute(
-      path: '/WeddingDressView',
+      path: '/StoreView',
       builder: (context, state) => BlocProvider(
-            create: (context) => CategoriesCubit(),
-            child: const WeddingDressView(),
+            create: (context) => ProductsCubit(),
+            child: const StoreView(),
           )),
-  GoRoute(
-      path: '/EveningDressView',
-      builder: (context, state) => const EveningDressView()),
-  GoRoute(path: '/itemView', builder: (context, state) => const ItemView()),
+ 
   GoRoute(
       path: '/DataAndTimeView',
       builder: (context, state) => const Appointment()),

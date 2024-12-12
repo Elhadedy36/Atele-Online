@@ -12,7 +12,7 @@ class CustomDressCard extends StatelessWidget {
     super.key,
     required this.categoryName,
     required this.isForRent,
-  }); 
+  });
 
   final String categoryName;
   final bool isForRent;
@@ -73,7 +73,7 @@ class CustomDressCard extends StatelessWidget {
                                 fit: BoxFit.cover,
                                 image: NetworkImage(
                                     product.images.isNotEmpty
-                                        ? product.images
+                                        ? product.images[0]
                                         : ''),
                               ),
                             ),
