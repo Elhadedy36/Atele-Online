@@ -1,6 +1,7 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/feature/categories/data/model/category_model.dart';
+import 'package:atele_online/feature/store/data/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,7 +11,7 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-final extraData = GoRouter.of(context).state!.extra as CategoryModel;
+final extraData = GoRouter.of(context).state!.extra as ProductModel;
 
     return Scaffold(
       endDrawer: const Drawer(),
@@ -20,7 +21,7 @@ final extraData = GoRouter.of(context).state!.extra as CategoryModel;
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
             child: Container(
-              child: Image(image: AssetImage(extraData.categoryImage),)),
+              child: Image(image: NetworkImage(extraData.images),)),
           ),
           Center(
               child: Text(
