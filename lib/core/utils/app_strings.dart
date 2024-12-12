@@ -48,9 +48,9 @@ abstract class FirebaseStrings {
   static const String products = 'products';
   static const String nameProduct = 'nameProduct';
   static const String descriptionProduct = 'description';
-  static const String price = '\$500';
+  static const String price = 'Price';
   static const String isForRent = 'isForRent';
-  static const String depositAmount = 'depositAmount';
+  static const String deposit = 'Deposit';
   static const String images = 'images';
   static const String stock = 'stock';
   static const String category = 'category';
