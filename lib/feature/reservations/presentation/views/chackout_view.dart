@@ -1,14 +1,7 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
-import 'package:atele_online/core/functions/navigation.dart';
-import 'package:atele_online/core/functions/sliver_sized_box.dart';
-import 'package:atele_online/core/utils/app_assets.dart';
-import 'package:atele_online/core/utils/app_strings.dart';
-import 'package:atele_online/core/widgets/custom_button.dart';
-import 'package:atele_online/core/widgets/custom_list_title.dart';
-import 'package:atele_online/feature/reservations/presentation/widget/custom_row_chackout.dart';
+import 'package:atele_online/feature/reservations/presentation/widget/custom_chackout_builder.dart';
 import 'package:atele_online/feature/reservations/presentation/widget/custom_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChackoutView extends StatelessWidget {
   const ChackoutView({
@@ -22,36 +15,17 @@ class ChackoutView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         child: CustomScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            slivers: [
-              SliverToBoxAdapter(
-                child: CustomSliderThem(
-                  indexTop: 1,
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: CustomListTile(
-                  image: AssetImage(Assets.imagesDrees),
-                  title: 'Red Dress ',
-                  subtitle: 'Evening Dress',
-                  trallingText: '\$2000',
-                ),
-              ),
-              SliverSizedBox(130.h),
-              const SliverToBoxAdapter(
-                  child: CustomRowChackOut(
-                      title: AppStrings.totel, trallingText: '\$3000')),
-              SliverSizedBox(16.h),
-              SliverToBoxAdapter(
-                child: CustomBtn(
-                  text: AppStrings.buyNow,
-                  textcolor: Colors.white,
-                  onPressed: () {
-                    customNavigate(context, path: '/ChackoutView');
-                  },
-                ),
-              ),
-            ]),
+        
+          slivers: [
+          SliverToBoxAdapter(
+            child: CustomSliderThem(
+              indexTop: 1,
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: CustomChackOutCardBuilder(),
+          ),
+        ]),
       ),
     );
   }

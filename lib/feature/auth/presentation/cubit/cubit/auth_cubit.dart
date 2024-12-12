@@ -73,7 +73,7 @@ class AuthCubit extends Cubit<AuthState> {
     await user.doc(FirebaseAuth.instance.currentUser!.uid).set({
       FirebaseStrings.fristname: userModel.fristname,
       FirebaseStrings.lastname: userModel.lastname,
-      FirebaseStrings.phone: userModel.phone,
+      FirebaseStrings.phoneNumber: userModel.phone,
       FirebaseStrings.location:userModel.location,
       FirebaseStrings.userId: userModel.uId,
       FirebaseStrings.email: userModel.email,

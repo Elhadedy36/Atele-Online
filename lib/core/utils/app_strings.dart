@@ -9,7 +9,7 @@ abstract class AppStrings {
   static const String accountDetails = 'Account Details';
   static const String offers = 'Offers';
   static const String eveningDress = 'Evening Dress';
-  static const String weddingDress = 'Wedding Dress';
+  static const String weddingDress = 'Wedding Dresses';
   static const String forSale = 'For Sale';
   static const String forRent = 'For Rent';
   static const String appointment = 'Appointment';
@@ -23,6 +23,7 @@ abstract class AppStrings {
 }
 
 abstract class FirebaseStrings {
+  /* Basic Keys [Shared] */
   static const String users = 'Users';
   static const String users = 'Users';
   static const String userId = 'userId';
@@ -30,35 +31,37 @@ abstract class FirebaseStrings {
   static const String password = 'password';
   static const String fristname = 'fristname';
   static const String lastname = 'lastname';
-  static const String phone = 'phone';
+  static const String phoneNumber = 'phone';
   static const String address = 'Address';
   static const String createdAt = 'createdAt';
+  static const String ateleName = 'ateleName';
+
+  /* */
   static const String appointments = 'appointments';
   static const String appointmentId = 'appointmentId';
-  static const String nameProuduct = 'nameProuduct';
-  static const String descriptionProuduct = 'descriptionProuduct';
-  static const String productId = 'productId';
-  static const String sellerId = 'sellerId';
-  static const String appointmentDate = 'appointmentDate';
-  static const String depositPaid = 'DepositPaid';
   static const String status = 'status';
-  static const String sellers = 'sellers';
-  static const String storeName = 'storeName';
+  static const String appointmentDate = 'appointmentDate';
+  static const String depositPaid = 'DepositPaid :';
+/* products related */
+  static const String products = 'Products';
+  static const String productName = 'productName';
+  static const String productDescription = 'productDescription';
+  static const String productId = 'productId';
+  static const String isForRent = 'isForRent';
+  static const String depositeAmount = 'depositeAmount';
+  static const String productsImages = 'productImages';
+/* Sellers related */
+  static const String sellerId = 'sellerId';
+  static const String sellers = 'Sellers';
   static const String sellerName = 'sellerName';
   static const String location = 'location';
-  static const String products = 'products';
-  static const String nameProduct = 'nameProduct';
-  static const String descriptionProduct = 'description';
-  static const String price = '\$500';
-  static const String isForRent = 'isForRent';
-  static const String depositAmount = 'depositAmount';
-  static const String images = 'images';
   static const String stock = 'stock';
-  static const String category = 'category';
-  static const String categories = 'categories';
+  /* Catigories related */
+  static const String categories = 'Categories';
   static const String categoryId = 'categoryId';
-  static const String nameCategoryWedding = 'Wedding Dresses';
-  static const String namecategoryEvening = 'Evening Dresses';
+  static const String categoryName = 'categoryName';
+  static const String categoryDescription = 'categoryDescription';
+  static const String categoryImage = 'categoryImage';
   static const String descriptionCategoryWedding =
       'Elegant dresses for weddings';
   static const String descriptionCategoryEvening =
