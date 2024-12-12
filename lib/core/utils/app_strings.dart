@@ -15,6 +15,11 @@ abstract class AppStrings {
   static const String appointment = 'Appointment';
   static const String buyNow = 'Buy Now';
   static const String totel = 'Totel';
+  static const String email = 'email';
+  static const String name = 'Name';
+  static const String phone = 'phone';
+  static const String city = 'city';
+  static const String editProfile = 'Edit Profile';
 }
 
 abstract class FirebaseStrings {
@@ -35,7 +40,7 @@ abstract class FirebaseStrings {
   static const String appointmentId = 'appointmentId';
   static const String status = 'status';
   static const String appointmentDate = 'appointmentDate';
-  static const String depositPaid = 'DepositPaid';
+  static const String depositPaid = 'DepositPaid :';
 /* products related */
   static const String products = 'Products';
   static const String productName = 'productName';

@@ -4,8 +4,8 @@ import 'package:atele_online/core/functions/sliver_sized_box.dart';
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
-import 'package:atele_online/feature/reservations/presentation/widget/custom_list_title.dart';
-import 'package:atele_online/feature/reservations/presentation/widget/custom_row_chackout.dart';
+import 'package:atele_online/core/widgets/custom_list_title.dart';
+import 'package:atele_online/core/widgets/custom_row.dart';
 import 'package:atele_online/feature/reservations/presentation/widget/custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,46 +30,24 @@ class ChackoutView extends StatelessWidget {
                 ),
               ),
               const SliverToBoxAdapter(
-                child: CustomListTitle(
+                child: CustomListTile(
                   image: AssetImage(Assets.imagesDrees),
                   title: 'Red Dress ',
                   subtitle: 'Evening Dress',
                   trallingText: '\$2000',
                 ),
               ),
-              SliverSizedBox(8.h),
-              SliverToBoxAdapter(
-                child: Divider(
-                  color: Colors.grey[400],
-                  thickness: 2.h,
-                ),
-              ),
-              SliverSizedBox(20.h),
-              const SliverToBoxAdapter(
-                child: CustomRowChackOut(
-                    title: FirebaseStrings.depositPaid,
-                    trallingText: FirebaseStrings.depositeAmount),
-              ),
-              SliverSizedBox(8.h),
-              const SliverToBoxAdapter(
-                  child: CustomRowChackOut(
-                      title: FirebaseStrings.address,
-                      trallingText: 'New Damietta')),
-              SliverSizedBox(8.h),
-              const SliverToBoxAdapter(
-                  child: CustomRowChackOut(
-                      title: 'Time&Date', trallingText: '3:30-20-12-2024')),
-              SliverSizedBox(180.h),
-              SliverToBoxAdapter(
-                child: Divider(
-                  color: Colors.grey[400],
-                  thickness: 2.h,
-                ),
-              ),
-              SliverSizedBox(16.h),
-              const SliverToBoxAdapter(
-                  child: CustomRowChackOut(
-                      title: AppStrings.totel, trallingText: '\$3000')),
+              SliverSizedBox(130.h),
+               SliverToBoxAdapter(
+                  child: CustomRow(
+                title: AppStrings.totel,
+                trallingText: '\$3000',
+                style1: TextStyle(
+                    color: Colors.orange,
+                    fontSize:30.sp, 
+                    fontWeight: FontWeight.bold),
+                style2: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              )),
               SliverSizedBox(16.h),
               SliverToBoxAdapter(
                 child: CustomBtn(

@@ -40,10 +40,10 @@ final  bool? enabled;
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         labelText: labelText,
-        labelStyle: TextStyle(fontSize: 16.sp, color: Colors.black),
-        border: getBorderStyle(16, AppColors.primaryColor),
-        enabledBorder: getBorderStyle(16, AppColors.primaryColor),
-        focusedBorder: getBorderStyle(16, AppColors.primaryColor),
+        labelStyle: TextStyle(fontSize: 14.sp, color: Colors.black),
+        border: getBorderStyle(14, AppColors.primaryColor),
+        enabledBorder: getBorderStyle(14, AppColors.primaryColor),
+        focusedBorder: getBorderStyle(14, AppColors.primaryColor),
       ),
     );
   }

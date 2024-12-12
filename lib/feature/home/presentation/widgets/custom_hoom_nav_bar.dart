@@ -1,9 +1,8 @@
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
-import 'package:atele_online/feature/categories/cubit/categories_cubit.dart';
+import 'package:atele_online/feature/appointments/presentation/views/my_appointments_view.dart';
 import 'package:atele_online/feature/categories/presentation/views/categories_view.dart';
 import 'package:atele_online/feature/home/presentation/views/home_view.dart';
-import 'package:atele_online/feature/profile/presentation/views/account_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
@@ -36,7 +35,7 @@ List<Widget> _buildScreens() {
   return [
     const HomeView(),
     const CategoriesView(),
-    const AccountView(),
+    const MyAppointmentsView(),
   ];
 }
 
@@ -55,7 +54,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       inactiveColorPrimary: AppColors.greyColor,
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(Icons.person),
+      icon: const Icon(Icons.punch_clock),
       title: (AppStrings.profile),
       activeColorPrimary: AppColors.blackColor,
       inactiveColorPrimary: AppColors.greyColor,
