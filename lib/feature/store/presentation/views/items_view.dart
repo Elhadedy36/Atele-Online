@@ -1,6 +1,5 @@
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
-import 'package:atele_online/feature/categories/data/model/category_model.dart';
 import 'package:atele_online/feature/store/data/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
