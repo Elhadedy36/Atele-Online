@@ -1,4 +1,5 @@
 import 'package:atele_online/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:atele_online/feature/auth/presentation/view/forgot_password_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signin_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signup_view.dart';
 import 'package:atele_online/feature/store/presentation/cubit/cubit/products_cubit.dart';
@@ -58,4 +59,10 @@ final GoRouter router = GoRouter(routes: [
       path: '/ChackoutView', builder: (context, state) => const ChackoutView()),
   GoRoute(
       path: '/itemView', builder: (context, state) => const ItemView()),
+        GoRoute(
+      path: "/forgotPassword",
+      builder: (context, state) => BlocProvider(
+            create: (context) => AuthCubit(),
+            child: const ForgotPasswordView(),
+          )),
 ]);

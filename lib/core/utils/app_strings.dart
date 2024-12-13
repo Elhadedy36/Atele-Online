@@ -20,11 +20,14 @@ abstract class AppStrings {
   static const String phone = 'phone';
   static const String city = 'city';
   static const String editProfile = 'Edit Profile';
+  static const forgotPasswordSubTitel =
+      'Enter Your Registered Email Below To Receive Password Reset Instructions';
+  static const String sendResetPasswordLink = "Send Reset Password Link";
+  static const forgotPassword = "Forgot Password ?";
 }
 
 abstract class FirebaseStrings {
   /* Basic Keys [Shared] */
-  static const String users = 'Users';
   static const String users = 'Users';
   static const String userId = 'userId';
   static const String email = 'email';

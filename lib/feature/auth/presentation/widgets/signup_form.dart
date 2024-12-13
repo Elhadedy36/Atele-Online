@@ -14,22 +14,19 @@ class SignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if(state is EmailVerificationsuccess)
-        {
+        if (state is EmailVerificationsuccess) {
           showToast('check your email');
           customNavigaeReplacement(context, path: '/signin');
-        }
-        else if(state is SignUpError)
-        {
+        } else if (state is SignUpError) {
           showToast(state.errmsg);
         }
       },
       builder: (context, state) {
         return Column(children: [
           Form(
-            key: context.read<AuthCubit>().SignUpFormKey,
+            key: context.read<AuthCubit>().signUpFormKey,
             child: Column(
               children: [
                 CustomTextFormField(
@@ -48,44 +45,49 @@ class SignupForm extends StatelessWidget {
                 ),
                 CustomTextFormField(
                   labelText: 'Email',
-                  controller: context.read<AuthCubit>().email_up,
+                  controller: context.read<AuthCubit>().emailUp,
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
-                 CustomTextFormField(
+                CustomTextFormField(
                   labelText: 'Phone Number',
-                  controller: context.read<AuthCubit>().phone_num,
+                  controller: context.read<AuthCubit>().phoneNum,
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
-                 CustomTextFormField(
+                CustomTextFormField(
                   labelText: 'City',
-                  controller: context.read<AuthCubit>().lacation_up,
+                  controller: context.read<AuthCubit>().lacationUp,
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
                 CustomTextFormField(
                   labelText: 'Password',
-                  controller: context.read<AuthCubit>().password_up,
+                  controller: context.read<AuthCubit>().passwordUp,
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
-              state is SignUpLoading? const CircularProgressIndicator():  CustomBtn(
-                  text: AppStrings.signUp,
-                  onPressed: () 
-                  {
-                    if(context.read<AuthCubit>().SignUpFormKey.currentState!.validate())
-                    {
-                      context.read<AuthCubit>().SignUpWithEmailAndPassword();
-                    }
-                  },
-                  textcolor: AppColors.secondaryColor,
-
-                )
+                state is SignUpLoading
+                    ? const CircularProgressIndicator(color: Colors.black)
+                    : CustomBtn(
+                        text: AppStrings.signUp,
+                        onPressed: () {
+                          if (context
+                              .read<AuthCubit>()
+                              .signUpFormKey
+                              .currentState!
+                              .validate()) {
+                            context
+                                .read<AuthCubit>()
+                                .signUpWithEmailAndPassword();
+                          }
+                        },
+                        textcolor: AppColors.secondaryColor,
+                      )
               ],
             ),
           )
