@@ -8,11 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomPageViewHome extends StatelessWidget {
   CustomPageViewHome({super.key});
   final List images = [
-    Assets.imagesDrees,
-    Assets.imagesDrees3,
-    Assets.imagesDrees4,
-    Assets.imagesDrees5,
-    Assets.imagesDrees6,
+    Assets.imagesSplash2,
+    Assets.imagesOnboarding,
+    Assets.imagesOnboarding,
+    Assets.imagesOnboarding,
+    Assets.imagesOnboarding,
   ];
   @override
   Widget build(BuildContext context) {
