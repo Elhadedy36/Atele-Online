@@ -1,7 +1,6 @@
 import 'package:atele_online/core/functions/navigation.dart';
-import 'package:atele_online/core/functions/sliver_sized_box.dart';
-import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
+import 'package:atele_online/feature/auth/presentation/widgets/custom_sign_up_image.dart';
 import 'package:atele_online/feature/auth/presentation/widgets/have_an_account_widget.dart';
 import 'package:atele_online/feature/auth/presentation/widgets/signup_form.dart';
 import 'package:flutter/material.dart';
@@ -13,22 +12,11 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: AppColors.primaryColor,
-        title: Text(
-          'Atele Online',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24.sp,
-              color: AppColors.secondaryColor),
-        ),
-      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 12.w),
         child: CustomScrollView(
           slivers: [
-            SliverSizedBox(200.h),
+            const SliverToBoxAdapter(child: SignUpImage()),
             const SliverToBoxAdapter(
               child: SignupForm(),
             ),

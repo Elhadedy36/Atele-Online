@@ -1,11 +1,10 @@
 import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
-import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
 import 'package:atele_online/feature/onboarding/data/models/on_boarding_model.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GetButtons extends StatelessWidget {
   const GetButtons(
@@ -17,17 +16,20 @@ class GetButtons extends StatelessWidget {
     if (currentIndex == onBoardingData.length - 1) {
       return Column(
         children: [
-          CustomBtn(
-            text: 'Create account',
-            onPressed: () {
-              CacheHelper().saveData(key: 'onboardingdone', value: true);
+          Padding(
+            padding: EdgeInsets.only(left: 16.w, right: 16.w),
+            child: CustomBtn(
+              text: 'Create account',
+              onPressed: () {
+                CacheHelper().saveData(key: 'onboardingdone', value: true);
 
-              customNavigaeReplacement(context, path: '/signup');
-            },
-            textcolor: AppColors.secondaryColor,
+                customNavigate(context, path: '/signup');
+              },
+              textcolor: AppColors.secondaryColor,
+            ),
           ),
           SizedBox(
-            height: 16,
+            height: 16.h,
           ),
           GestureDetector(
               onTap: () {
@@ -35,20 +37,23 @@ class GetButtons extends StatelessWidget {
 
                 customNavigaeReplacement(context, path: '/signin');
               },
-              child: Text(
+              child: const Text(
                 'Sign In Now',
               )),
         ],
       );
     } else {
-      return CustomBtn(
-        text: 'next',
-        onPressed: () {
-          controller.nextPage(
-              duration: const Duration(milliseconds: 400),
-              curve: Curves.easeInCirc);
-        },
-        textcolor: AppColors.secondaryColor,
+      return Padding(
+        padding: EdgeInsets.only(bottom: 8.h, left: 16.w, right: 16.w),
+        child: CustomBtn(
+          text: 'Next',
+          onPressed: () {
+            controller.nextPage(
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeInCirc);
+          },
+          textcolor: AppColors.secondaryColor,
+        ),
       );
     }
   }

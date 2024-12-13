@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
@@ -18,7 +16,7 @@ class HaveAnAccountWidget extends StatelessWidget {
           TextSpan(
               text: text1,
               style: TextStyle(color: Colors.black.withOpacity(0.6))),
-          TextSpan(text: text2, style: TextStyle(color: Colors.blue))
+          TextSpan(text: text2, style: const TextStyle(color: Colors.blue))
         ])),
       ),
     );

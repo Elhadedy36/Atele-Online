@@ -1,4 +1,5 @@
 import 'package:atele_online/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:atele_online/feature/auth/presentation/view/forgot_password_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signin_view.dart';
 import 'package:atele_online/feature/auth/presentation/view/signup_view.dart';
 import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';

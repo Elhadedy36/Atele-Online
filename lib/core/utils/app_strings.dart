@@ -20,6 +20,10 @@ abstract class AppStrings {
   static const String phone = 'phone';
   static const String city = 'city';
   static const String editProfile = 'Edit Profile';
+  static const forgotPasswordSubTitel =
+      'Enter Your Registered Email Below To Receive Password Reset Instructions';
+  static const String sendResetPasswordLink = "Send Reset Password Link";
+  static const forgotPassword = "Forgot Password ?";
   
   static const String publishableKey ="pk_test_51PuKIuK8vAZulRNshBzm6W8XumBbmb9f24oTPBFhpoteJGS70uPoJXpGjxamvLHC5TCVqtqnz9znQhEqDPOQHOtZ00FTnKaVGP";
   static const String SecretKey ="sk_test_51PuKIuK8vAZulRNs0vw0OOfc2HirY31hPtnE7u2cyRYFbqOkP8QXkRjVmiKR3t7hz62Qv2n4YsKhvGXhCjFGaKCf00Ad9q97lK";

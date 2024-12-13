@@ -15,54 +15,44 @@ class SpalshView extends StatefulWidget {
 class _SpalshViewState extends State<SpalshView> {
   @override
   void initState() {
-    // TODO: implement initState
-    Future.delayed(const Duration(seconds: 2),()
-    {
-    bool isonboard =  CacheHelper().getData(key: 'onboardingdone')??false;
-    if(isonboard){
-      CacheHelper().getData(key: 'isSignedIn') == null
-          ? customNavigaeReplacement(context, path: '/signin')
-          : CacheHelper().getData(key: 'isSignedIn')
-              ? customNavigaeReplacement(context, path: '/HoomNavBar')
-              : customNavigaeReplacement(context, path: '/signin');
-              }else
-              {
-                customNavigaeReplacement(context, path: '/onboarding');
-              }
+    Future.delayed(const Duration(seconds: 2), () {
+      bool isonboard = CacheHelper().getData(key: 'onboardingdone') ?? false;
+      if (isonboard) {
+        CacheHelper().getData(key: 'isSignedIn') == null
+            ? customNavigaeReplacement(context, path: '/signin')
+            : CacheHelper().getData(key: 'isSignedIn')
+                ? customNavigaeReplacement(context, path: '/HoomNavBar')
+                : customNavigaeReplacement(context, path: '/signin');
+      } else {
+        customNavigaeReplacement(context, path: '/onboarding');
+      }
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-    (
+    return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body:Stack(
-        children: [Align(
+      body: Stack(children: [
+        Align(
           alignment: Alignment.center,
-          child: Container
-          (
+          child: Container(
             width: double.infinity,
-            height: double.infinity, 
-            
-            decoration: const BoxDecoration
-            (
-              image: const DecorationImage
-              (
-                image: AssetImage(Assets.imagesSplash2),
-                fit: BoxFit.cover
-              )
-            ),
-          
+            height: double.infinity,
+            decoration: const BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage(Assets.imagesSplash2),
+                    fit: BoxFit.cover)),
           ),
         ),
-        
         Positioned(
-          top: 400.h,
-          left: 170.w,
-          child: CircularProgressIndicator())
-        ]
-      ) ,
+            top: 400.h,
+            left: 170.w,
+            child: const CircularProgressIndicator(
+              color: Colors.black,
+            ))
+      ]),
     );
   }
 }

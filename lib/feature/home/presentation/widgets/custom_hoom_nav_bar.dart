@@ -4,7 +4,6 @@ import 'package:atele_online/feature/appointments/presentation/views/my_appointm
 import 'package:atele_online/feature/categories/presentation/views/categories_view.dart';
 import 'package:atele_online/feature/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 PersistentTabController _controller = PersistentTabController();
@@ -22,10 +21,7 @@ class HomeNavBarWidget extends StatelessWidget {
       navBarStyle: NavBarStyle.style12,
       backgroundColor: AppColors.whiteColor,
       decoration: const NavBarDecoration(
-        borderRadius: BorderRadius.only(
-            // topLeft: Radius.circular(10),
-            // topRight: Radius.circular(10),
-            ),
+        borderRadius: BorderRadius.only(),
       ),
     );
   }

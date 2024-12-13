@@ -4,45 +4,68 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  GlobalKey<FormState> SignUpFormKey = GlobalKey<FormState>();
-  GlobalKey<FormState> SignInFormKey = GlobalKey<FormState>();
-  TextEditingController email_in = TextEditingController();
-  TextEditingController phone_num = TextEditingController();
-  TextEditingController password_in = TextEditingController();
-  TextEditingController email_up = TextEditingController();
-  TextEditingController password_up = TextEditingController();
-  TextEditingController lacation_up = TextEditingController();
+  GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> forgotPasswordFormKey = GlobalKey();
+  TextEditingController emailIn = TextEditingController();
+  TextEditingController phoneNum = TextEditingController();
+  TextEditingController passwordIn = TextEditingController();
+  TextEditingController emailUp = TextEditingController();
+  TextEditingController passwordUp = TextEditingController();
+  TextEditingController lacationUp = TextEditingController();
   TextEditingController fristname = TextEditingController();
   TextEditingController lastname = TextEditingController();
   TextEditingController messageController = TextEditingController();
   ScrollController scrollController = ScrollController();
   GlobalKey<FormState> scrollkey = GlobalKey<FormState>();
   final user = FirebaseFirestore.instance.collection('Users');
+  String? emailAddress;
 
-  SignInWithEmailAndPassword() async {
+  signInWithEmailAndPassword() async {
     try {
       emit(SignInLoading());
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email_in.text, password: password_in.text);
+          email: emailIn.text, password: passwordIn.text);
       emit(SignInSuccess());
     } on FirebaseAuthException catch (e) {
       emit(SignInError(e.code));
     }
   }
 
-  SignUpWithEmailAndPassword() async {
+  signInWithGoogle() async {
+    try {
+      emit(GoolegleSignInLoadingState());
+      signOut();
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      emit(GoogleSignInSuccessState());
+    } catch (e) {
+      emit(GoogleSignInErrorState(e.toString()));
+    }
+  }
+
+  signUpWithEmailAndPassword() async {
     try {
       emit(SignUpLoading());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email_up.text, password: password_up.text);
-          emit(SignUpSuccess());
+          email: emailUp.text, password: passwordUp.text);
+      emit(SignUpSuccess());
 
       await FirebaseAuth.instance.currentUser!.sendEmailVerification();
       emit(EmailVerificationsuccess());
@@ -55,15 +78,13 @@ class AuthCubit extends Cubit<AuthState> {
           addUser(UserModel(
             fristname: fristname.text,
             lastname: lastname.text,
-            phone: phone_num.text,
-            location: lacation_up.text,
+            phone: phoneNum.text,
+            location: lacationUp.text,
             uId: FirebaseAuth.instance.currentUser!.uid,
-            email: email_up.text,
+            email: emailUp.text,
           ));
         }
       }
-
-      
     } on FirebaseAuthException catch (e) {
       emit(SignUpError(e.code));
     }
@@ -74,19 +95,31 @@ class AuthCubit extends Cubit<AuthState> {
       FirebaseStrings.fristname: userModel.fristname,
       FirebaseStrings.lastname: userModel.lastname,
       FirebaseStrings.phoneNumber: userModel.phone,
-      FirebaseStrings.location:userModel.location,
+      FirebaseStrings.location: userModel.location,
       FirebaseStrings.userId: userModel.uId,
       FirebaseStrings.email: userModel.email,
     });
   }
 
-  SignOut() async {
+  signOut() async {
     try {
       emit(SignOutLoading());
       await FirebaseAuth.instance.signOut();
       emit(SignOutSuccess());
     } on Exception catch (e) {
       emit(SignOutError(e.toString()));
+    }
+  }
+
+  Future<void> resetPasswordWithEmail() async {
+    try {
+      emit(ResetPasswordLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
+      emit(ResetPasswordSuccessState());
+    } on FirebaseAuthException catch (e) {
+      emit(ResetPasswordFailuerState(errorMessage: e.code));
+    } catch (e) {
+      emit(ResetPasswordFailuerState(errorMessage: e.toString()));
     }
   }
 }
