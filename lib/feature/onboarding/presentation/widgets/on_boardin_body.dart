@@ -1,12 +1,10 @@
-import 'package:atele_online/app/atele_online.dart';
 import 'package:atele_online/feature/onboarding/data/models/on_boarding_model.dart';
-import 'package:atele_online/feature/onboarding/presentation/widgets/custom_smooth_page_indicator.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class onBoardingBody extends StatelessWidget {
-  const onBoardingBody({super.key, required this.controller, this.onPageChanged});
+class OnBoardingBody extends StatelessWidget {
+  const OnBoardingBody(
+      {super.key, required this.controller, this.onPageChanged});
 
   final PageController controller;
   final Function(int)? onPageChanged;
@@ -30,24 +28,38 @@ class onBoardingBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 70.h,),  
+                SizedBox(
+                  height: 100.h,
+                ),
                 // Title and subtitle will appear on top of the image
-                Text(
-                  onBoardingData[index].title,
-                  style: TextStyle(color: const Color.fromARGB(255, 244, 235, 179),fontSize: 30.sp,fontWeight: FontWeight.bold,),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  child: Text(
+                    onBoardingData[index].title,
+                    style: TextStyle(
+                      color: Colors.yellow[300],
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 SizedBox(
                   height: 16.h,
                 ),
-                Text(
-                  onBoardingData[index].subtitle,
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    onBoardingData[index].subtitle,
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),

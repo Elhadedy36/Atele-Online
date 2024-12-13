@@ -1,6 +1,6 @@
 import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/navigation.dart';
-import 'package:atele_online/feature/onboarding/presentation/widgets/custo_nav_bar.dart';
+import 'package:atele_online/feature/onboarding/presentation/widgets/custom_nav_bar.dart';
 import 'package:atele_online/feature/onboarding/presentation/widgets/custom_smooth_page_indicator.dart';
 import 'package:atele_online/feature/onboarding/presentation/widgets/get_buttons.dart';
 import 'package:atele_online/feature/onboarding/presentation/widgets/on_boardin_body.dart';
@@ -24,8 +24,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       child: Scaffold(
         body: Stack(
           children: [
-            // Full-screen background image
-            onBoardingBody(
+            OnBoardingBody(
               controller: _controller,
               onPageChanged: (index) {
                 setState(() {
@@ -46,7 +45,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             // Smooth Indicator
             Positioned(
               bottom: 150.h, // Adjust based on desired position
-              left: 150.w, 
+              left: 150.w,
               right: 0,
               child: CustomSmoothPageIndicator(controller: _controller),
             ),
