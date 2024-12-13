@@ -11,6 +11,7 @@ class AppointmentsModel
   final String address;
   final String phoneNumber;
   final String userId;
+  
 
   AppointmentsModel({ required this.appointmentsId, required this.appointmentsDateTime, required this.productName, required this.sellerId, required this.ateleName, required this.depositePaid, required this.address, required this.phoneNumber, required this.userId});
 

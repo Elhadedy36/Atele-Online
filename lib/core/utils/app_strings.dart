@@ -29,13 +29,14 @@ abstract class AppStrings {
 abstract class FirebaseStrings {
   /* Basic Keys [Shared] */
   static const String users = 'Users';
+  static const String price = 'price';
   static const String userId = 'userId';
   static const String email = 'email';
   static const String password = 'password';
   static const String fristname = 'fristname';
   static const String lastname = 'lastname';
-  static const String phoneNumber = 'phone';
-  static const String address = 'Address';
+  static const String phoneNumber = 'phoneNumber';
+  static const String address = 'address';
   static const String createdAt = 'createdAt';
   static const String ateleName = 'ateleName';
 

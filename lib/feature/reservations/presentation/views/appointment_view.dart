@@ -1,11 +1,15 @@
+import 'package:atele_online/app/atele_online.dart';
+import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/functions/sliver_sized_box.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
+import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';
 import 'package:atele_online/feature/reservations/presentation/widget/custom_date_time.dart';
 import 'package:atele_online/feature/reservations/presentation/widget/custom_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Appointment extends StatelessWidget {
@@ -33,10 +37,18 @@ class Appointment extends StatelessWidget {
               text: 'Next',
               textcolor: Colors.white,
               onPressed: () {
-                customNavigate(context, path: '/ChackoutView');
+                if (context.read<ReserveCubit>().dateFormKey.currentState!.validate()) {
+                  final time = context.read<ReserveCubit>().timeController.text;
+                  final date = context.read<ReserveCubit>().dateController.text;
+                  
+                  context.read<SharedDataCubit>().setAppointmentTime(time, date);
+                  final dateTime = context.read<SharedDataCubit>().state["appointmentTime"] ;
+                  // print(' hereeeeee ${dateTime}');
+                  customNavigate(context, path: '/ChackoutView');
+                }
               },
             ),
-          )
+          ),
         ]),
       ),
     );

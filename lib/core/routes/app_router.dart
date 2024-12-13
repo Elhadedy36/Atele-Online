@@ -12,7 +12,7 @@ import 'package:atele_online/feature/reservations/presentation/views/appointment
 import 'package:atele_online/feature/reservations/presentation/views/chackout_view.dart';
 import 'package:atele_online/feature/splash_screen/presentation/view/spalsh_view.dart';
 import 'package:atele_online/feature/store/presentation/views/items_view.dart';
-import 'package:atele_online/feature/store/presentation/widgets/store_view.dart';
+import 'package:atele_online/feature/store/presentation/widgets/Store_Tab_View_Builder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -60,7 +60,7 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
       path: '/ChackoutView',
       builder: (context, state) => BlocProvider(
-            create: (context) => ReserveCubit(),
+            create: (context) => ReserveCubit()..getCheckOutData(),
             child: const ChackoutView(),
           )),
   GoRoute(path: '/itemView', builder: (context, state) => const ItemView()),
