@@ -37,16 +37,14 @@ class Appointment extends StatelessWidget {
               text: 'Next',
               textcolor: Colors.white,
               onPressed: () {
-                if (context.read<ReserveCubit>().dateFormKey.currentState!.validate()) {
-                  final time = context.read<ReserveCubit>().timeController.text;
-                  final date = context.read<ReserveCubit>().dateController.text;
-                  
-                  context.read<SharedDataCubit>().setAppointmentTime(time, date);
-                  final dateTime = context.read<SharedDataCubit>().state["appointmentTime"] ;
-                  // print(' hereeeeee ${dateTime}');
-                  customNavigate(context, path: '/ChackoutView');
-                }
-              },
+  if (context.read<ReserveCubit>().dateFormKey.currentState!.validate()) {
+    final time = context.read<ReserveCubit>().timeController.text;
+    final date = context.read<ReserveCubit>().dateController.text;
+    context.read<SharedDataCubit>().setAppointmentTime(time, date);
+    customNavigate(context, path: '/ChackoutView');
+  }
+},
+
             ),
           ),
         ]),

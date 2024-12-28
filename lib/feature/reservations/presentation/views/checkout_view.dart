@@ -6,8 +6,8 @@ import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cub
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ChackoutView extends StatelessWidget {
-  const ChackoutView({super.key});
+class CheckoutView extends StatelessWidget {
+  const CheckoutView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ChackoutView extends StatelessWidget {
               child: CustomSliderThem(indexTop: 1),
             ),
              SliverToBoxAdapter(
-              child: CustomChackOutCardWidget(product: context.read<SharedDataCubit>().state["selectedProduct"],),
+              child: CustomCheckOutCardWidget(product: context.read<SharedDataCubit>().state["selectedProduct"],),
             ),
           ],
         ),

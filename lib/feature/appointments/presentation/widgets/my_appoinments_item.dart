@@ -1,14 +1,15 @@
 import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_row.dart';
+import 'package:atele_online/feature/appointments/data/appointments_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyAppoinmentsItem extends StatelessWidget {
   const MyAppoinmentsItem({
-    super.key,
+    super.key, required this.model,
   });
-
+final AppointmentsModel model;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,8 +28,8 @@ class MyAppoinmentsItem extends StatelessWidget {
                 width: 180.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  image: const DecorationImage(
-                    image: AssetImage(Assets.imagesDrees),
+                  image:  DecorationImage(
+                    image: NetworkImage(model.productImg),
                     fit: BoxFit.cover,
                   ),
                 )),
@@ -39,7 +40,7 @@ class MyAppoinmentsItem extends StatelessWidget {
               ),
               child: CustomRow(
                 title: FirebaseStrings.depositPaid,
-                trallingText: FirebaseStrings.depositeAmount,
+                trallingText: model.depositeAmount.toString(),
                 style1: TextStyle(
                     color: Colors.black,
                     fontSize: 12.sp,
@@ -55,7 +56,7 @@ class MyAppoinmentsItem extends StatelessWidget {
               ),
               child: CustomRow(
                 title: 'Name Atele:',
-                trallingText: 'Atele Online',
+                trallingText: model.ateleName,
                 style1: TextStyle(
                     color: Colors.black,
                     fontSize: 12.sp,
@@ -71,7 +72,7 @@ class MyAppoinmentsItem extends StatelessWidget {
               ),
               child: CustomRow(
                 title: 'Phone :',
-                trallingText: '01092939601',
+                trallingText: model.phoneNumber,
                 style1: TextStyle(
                     color: Colors.black,
                     fontSize: 12.sp,
@@ -87,7 +88,7 @@ class MyAppoinmentsItem extends StatelessWidget {
               ),
               child: CustomRow(
                 title: 'Address :',
-                trallingText: 'New Damietta',
+                trallingText:model.address,
                 style1: TextStyle(
                     color: Colors.black,
                     fontSize: 12.sp,
@@ -104,7 +105,7 @@ class MyAppoinmentsItem extends StatelessWidget {
               ),
               child: CustomRow(
                 title: 'Your Appointment :',
-                trallingText: '3:30 - 20-12-2024',
+                trallingText: '${model.appointmentsDate} at ${model.appointmentsTime}',
                 style1: TextStyle(
                     color: Colors.pink,
                     fontSize: 11.sp,

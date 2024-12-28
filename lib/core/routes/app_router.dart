@@ -10,7 +10,7 @@ import 'package:atele_online/feature/onboarding/presentation/view/onboarding_vie
 import 'package:atele_online/feature/profile/presentation/cubit/account_details_cubit.dart';
 import 'package:atele_online/feature/profile/presentation/views/account_view.dart';
 import 'package:atele_online/feature/reservations/presentation/views/appointment_view.dart';
-import 'package:atele_online/feature/reservations/presentation/views/chackout_view.dart';
+import 'package:atele_online/feature/reservations/presentation/views/checkout_view.dart';
 import 'package:atele_online/feature/splash_screen/presentation/view/spalsh_view.dart';
 import 'package:atele_online/feature/store/presentation/views/items_view.dart';
 import 'package:atele_online/feature/store/presentation/widgets/Store_Tab_View_Builder.dart';
@@ -61,8 +61,14 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
       path: '/ChackoutView',
       builder: (context, state) => BlocProvider(
-            create: (context) => ReserveCubit()..getCheckOutData(),
-            child: const ChackoutView(),
+            create: (context) => ReserveCubit(),
+            child: const CheckoutView(),
           )),
   GoRoute(path: '/itemView', builder: (context, state) => const ItemView()),
+  GoRoute(
+      path: '/forgotPassword',
+      builder: (context, state) => BlocProvider(
+            create: (context) => AuthCubit(),
+            child: const ForgotPasswordView(),
+          )),
 ]);

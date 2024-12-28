@@ -2,31 +2,39 @@ import 'package:atele_online/core/utils/app_strings.dart';
 
 class AppointmentsModel 
 {
-  final String appointmentsId;
-  final String appointmentsDateTime;
+
+  final String categoryName;
+  final String appointmentsDate;
+  final String appointmentsTime;
   final String productName;
-  final String sellerId;
   final String ateleName;
-  final double depositePaid;
+  final double depositeAmount;
+  final double price;
+  final double rest;
+  final String productImg;
   final String address;
   final String phoneNumber;
   final String userId;
+  final bool isForRent;
   
 
-  AppointmentsModel({ required this.appointmentsId, required this.appointmentsDateTime, required this.productName, required this.sellerId, required this.ateleName, required this.depositePaid, required this.address, required this.phoneNumber, required this.userId});
+  AppointmentsModel({required this.isForRent, required this.categoryName,required this.appointmentsTime,required this.price,required this.rest,required this.productImg,  required this.appointmentsDate, required this.productName,  required this.ateleName, required this.depositeAmount, required this.address, required this.phoneNumber, required this.userId});
 
 
   factory AppointmentsModel.fromJson(Map<String, dynamic> json) {
     return AppointmentsModel(
-      appointmentsId: json[FirebaseStrings.appointmentId],
-      appointmentsDateTime: json[FirebaseStrings.appointmentDate],
+      categoryName: json[FirebaseStrings.categoryName],
+      appointmentsTime: json[FirebaseStrings.appointmentTime],
+      price: json[FirebaseStrings.price],
+      rest: json[FirebaseStrings.rest],
+      productImg: json[FirebaseStrings.productsImages],
+      appointmentsDate: json[FirebaseStrings.appointmentDate],
       productName: json[FirebaseStrings.productName],
-      sellerId: json[FirebaseStrings.sellerId],
       ateleName: json[FirebaseStrings.ateleName],
-      depositePaid: json[FirebaseStrings.depositPaid],
+      depositeAmount: json[FirebaseStrings.depositeAmount],
       address: json[FirebaseStrings.address],
       phoneNumber: json[FirebaseStrings.phoneNumber],
-      userId: json[FirebaseStrings.userId],
+      userId: json[FirebaseStrings.userId], isForRent: json[FirebaseStrings.isForRent],
     );
   }
 }

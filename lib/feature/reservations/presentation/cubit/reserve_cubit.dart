@@ -15,20 +15,50 @@ class ReserveCubit extends Cubit<ReserveState> {
 TextEditingController timeController=TextEditingController();
 TextEditingController dateController=TextEditingController();
 GlobalKey<FormState> dateFormKey=GlobalKey<FormState>();
-  final _firestore = FirebaseFirestore.instance;
-Future<void> getCheckOutData()async
-{
+final CollectionReference _firestore = FirebaseFirestore.instance.collection(FirebaseStrings.appointments);
+final CollectionReference _firestoresub = FirebaseFirestore.instance.collection(FirebaseStrings.users).doc(FirebaseAuth.instance.currentUser!.uid).collection(FirebaseStrings.appointments);
 
-  try {
-  emit(ReserveLoading());
-   await _firestore.collection(FirebaseStrings.products).get().then((snapshot) {
-    List<ProductModel> products = snapshot.docs.map((doc) {
-      return ProductModel.fromJson(doc.data());
-    }).toList();
-    emit(ReserveProductLoaded(product: products));
+addAppointment(ProductModel product,String date,String time)async
+{
+  await addUserAppointment(product, date, time);
+  
+ await _firestore.add
+  ({
+    FirebaseStrings.productName:product.productName,
+    FirebaseStrings.categoryName:product.categoryName,
+    FirebaseStrings.ateleName:product.ateleName,
+    FirebaseStrings.phoneNumber:product.phoneNumber,
+    FirebaseStrings.address:product.address,
+    FirebaseStrings.appointmentDate:date,
+    FirebaseStrings.appointmentTime:time,
+    FirebaseStrings.depositeAmount:product.depositeAmount,
+    FirebaseStrings.price:product.price,
+    FirebaseStrings.rest: product.price-product.depositeAmount,
+    FirebaseStrings.productsImages:product.productImages,
+    FirebaseStrings.isForRent:product.isForRent,
+    FirebaseStrings.userId:FirebaseAuth.instance.currentUser!.uid,
   });
-} on Exception catch (e) {
-  emit(ReserveError(message: e.toString()));
+
+
 }
+
+addUserAppointment(ProductModel product,String date,String time)async
+{
+  await _firestoresub.add
+  ({
+    FirebaseStrings.productName:product.productName,
+    FirebaseStrings.categoryName:product.categoryName,
+    FirebaseStrings.ateleName:product.ateleName,
+    FirebaseStrings.phoneNumber:product.phoneNumber,
+    FirebaseStrings.address:product.address,
+    FirebaseStrings.appointmentDate:date,
+    FirebaseStrings.appointmentTime:time,
+    FirebaseStrings.depositeAmount:product.depositeAmount,
+    FirebaseStrings.price:product.price,
+    FirebaseStrings.rest: product.price-product.depositeAmount,
+    FirebaseStrings.productsImages:product.productImages,
+    FirebaseStrings.isForRent:product.isForRent,
+    FirebaseStrings.userId:FirebaseAuth.instance.currentUser!.uid,
+  }); 
 }
 }

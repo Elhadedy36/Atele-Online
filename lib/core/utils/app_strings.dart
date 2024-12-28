@@ -34,6 +34,7 @@ abstract class FirebaseStrings {
   /* Basic Keys [Shared] */
   static const String users = 'Users';
   static const String price = 'price';
+  static const String rest = 'rest';
   static const String userId = 'userId';
   static const String email = 'email';
   static const String password = 'password';
@@ -49,6 +50,7 @@ abstract class FirebaseStrings {
   static const String appointmentId = 'appointmentId';
   static const String status = 'status';
   static const String appointmentDate = 'appointmentDate';
+  static const String appointmentTime = 'appointmentTime';
   static const String depositPaid = 'DepositPaid :';
 /* products related */
   static const String products = 'Products';
