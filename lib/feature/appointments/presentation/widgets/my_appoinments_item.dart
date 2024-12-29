@@ -104,7 +104,7 @@ final AppointmentsModel model;
                 horizontal: 24.w,
               ),
               child: CustomRow(
-                title: 'Your Appointment :',
+                title: 'Appointment :',
                 trallingText: '${model.appointmentsDate} at ${model.appointmentsTime}',
                 style1: TextStyle(
                     color: Colors.pink,

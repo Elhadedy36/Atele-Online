@@ -1,8 +1,6 @@
 import 'package:atele_online/core/utils/app_strings.dart';
 
-class AppointmentsModel 
-{
-
+class AppointmentsModel {
   final String categoryName;
   final String appointmentsDate;
   final String appointmentsTime;
@@ -16,10 +14,23 @@ class AppointmentsModel
   final String phoneNumber;
   final String userId;
   final bool isForRent;
-  
+  final String productId;
 
-  AppointmentsModel({required this.isForRent, required this.categoryName,required this.appointmentsTime,required this.price,required this.rest,required this.productImg,  required this.appointmentsDate, required this.productName,  required this.ateleName, required this.depositeAmount, required this.address, required this.phoneNumber, required this.userId});
-
+  AppointmentsModel(
+      {required this.isForRent,
+      required this.categoryName,
+      required this.appointmentsTime,
+      required this.price,
+      required this.rest,
+      required this.productImg,
+      required this.appointmentsDate,
+      required this.productName,
+      required this.ateleName,
+      required this.depositeAmount,
+      required this.address,
+      required this.phoneNumber,
+      required this.userId,
+      required this.productId});
 
   factory AppointmentsModel.fromJson(Map<String, dynamic> json) {
     return AppointmentsModel(
@@ -34,7 +45,9 @@ class AppointmentsModel
       depositeAmount: json[FirebaseStrings.depositeAmount],
       address: json[FirebaseStrings.address],
       phoneNumber: json[FirebaseStrings.phoneNumber],
-      userId: json[FirebaseStrings.userId], isForRent: json[FirebaseStrings.isForRent],
+      userId: json[FirebaseStrings.userId],
+      isForRent: json[FirebaseStrings.isForRent],
+      productId: json[FirebaseStrings.productId],
     );
   }
 }

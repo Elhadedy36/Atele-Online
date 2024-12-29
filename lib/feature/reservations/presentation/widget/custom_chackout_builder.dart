@@ -85,7 +85,7 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                     child: Divider(color: Colors.black.withOpacity(0.1), thickness: 0.8.h),
                   ),
                   SizedBox(height: 10.h),
-                  _buildCustomRow('Your Appointment:', '${date}, ${time}', Colors.pink),
+                  _buildCustomRow('Appointment:', '${date}, ${time}', Colors.pink),
                   Divider(color: Colors.grey[400], thickness: 0.5.h),
     
                   // Payment Details
