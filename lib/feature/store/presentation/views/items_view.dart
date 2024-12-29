@@ -39,7 +39,6 @@ class ItemView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Product Image with Name Overlay
                 Stack(
                   children: [
                     Container(
@@ -79,7 +78,6 @@ class ItemView extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
 
-                // Product Description Section with Styling
                 Container(
                   padding: EdgeInsets.all(20.w),
                   decoration: BoxDecoration(
@@ -128,7 +126,48 @@ class ItemView extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
 
-                // Action Buttons Section
+                Container(
+                  padding: EdgeInsets.all(16.w),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        blurRadius: 8,
+                        spreadRadius: 2,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Stock Available:',
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      Text(
+                        product.stock > 0
+                            ? '${product.stock} items'
+                            : 'Out of Stock',
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          color: product.stock > 0
+                              ? Colors.green
+                              : Colors.red,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 24.h),
+
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 12.w),
                   decoration: BoxDecoration(
@@ -146,11 +185,8 @@ class ItemView extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // Add to Cart Button
                       ElevatedButton.icon(
-                        onPressed: () {
-                          // Handle Add to Cart
-                        },
+                        onPressed: product.stock > 0 ? () {} : null,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
                           padding: EdgeInsets.symmetric(
@@ -169,11 +205,12 @@ class ItemView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      // Buy Now Button
                       ElevatedButton.icon(
-                        onPressed: () {
-                          customNavigate(context, path: '/DataAndTimeView');
-                        },
+                        onPressed: product.stock > 0
+                            ? () {
+                                customNavigate(context, path: '/DataAndTimeView');
+                              }
+                            : null,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orangeAccent,
                           padding: EdgeInsets.symmetric(

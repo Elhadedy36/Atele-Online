@@ -13,9 +13,10 @@ final String productImages;
 final String address;
 final double price;
 final String phoneNumber;
+final int stock;
 
 
-  ProductModel( {required this.ateleName, required this.productName, required this.productDescription, required this.categoryName, required this.sellerId,  required this.isForRent, required this.depositeAmount, required this.productImages,required this.address,required this.price,required this.phoneNumber});
+  ProductModel( {required this.ateleName, required this.productName, required this.productDescription, required this.categoryName, required this.sellerId,  required this.isForRent, required this.depositeAmount, required this.productImages,required this.address,required this.price,required this.phoneNumber,required this.stock});
 
 
 factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -32,6 +33,7 @@ factory ProductModel.fromJson(Map<String, dynamic> json) {
     address:     json[FirebaseStrings.address],
     price:       json[FirebaseStrings.price],
     phoneNumber: json[FirebaseStrings.phoneNumber],
+    stock:       json[FirebaseStrings.stock],
   );
   }
 }
