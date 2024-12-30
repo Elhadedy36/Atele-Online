@@ -122,7 +122,7 @@ class ProductItem extends StatelessWidget {
                             // Product Price
                             Flexible(
                               child: Text(
-                                "\$${product.depositeAmount.round()}",
+                                "\$${product.depositeAmount}",
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,

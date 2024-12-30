@@ -2,8 +2,6 @@ import 'package:atele_online/core/Services/service_payment.dart';
 import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
 import 'package:atele_online/core/functions/custom_toast.dart';
 import 'package:atele_online/core/functions/navigation.dart';
-import 'package:atele_online/core/utils/app_assets.dart';
-import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/utils/app_text_style.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
 import 'package:atele_online/core/widgets/custom_row.dart';
@@ -91,7 +89,7 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                   // Payment Details
                   _buildCustomRow('Deposit Amount:', product.depositeAmount.toString(), Colors.pink),
                   Divider(color: Colors.grey[400], thickness: 0.5.h),
-                  _buildCustomRow('Price:', product.price.round().toString(), Colors.pink),
+                  _buildCustomRow('Price:', product.price.toString(), Colors.pink),
                   Divider(color: Colors.grey[400], thickness: 0.5.h),
                   _buildCustomRow('Rest:', '${product.price - product.depositeAmount}', Colors.pink),
     
@@ -104,7 +102,8 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                       textcolor: Colors.white,
                       onPressed: () async {
                         try {
-                          await PaymentManager.MakePayment(product.depositeAmount.round(), 'USD');
+                          int ammount=(product.depositeAmount *100).toInt();
+                          await PaymentManager.MakePayment(ammount, 'USD');
                           
                           context.read<ReserveCubit>().addAppointment(product, date, time);
                           customNavigate(context, path: '/HoomNavBar');
