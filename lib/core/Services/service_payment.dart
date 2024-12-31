@@ -6,7 +6,7 @@ abstract class PaymentManager {
   /* fun to take amount of money and the currency type that user need and to do the process */
   static Future<void> MakePayment(int amount, String currency) async {
     try {
-      String ClientSecret = await _getclientSecret((amount * 100).toString(),
+      String ClientSecret = await _getclientSecret((amount * 1).toString(),
           currency); //(amount*100).toString() cuz stripe take the ammount and devided by 100 and the function getclient takes the ammount as string
    await _initializedPaymentSheet(ClientSecret);
    await Stripe.instance.presentPaymentSheet();//show payment sheet
