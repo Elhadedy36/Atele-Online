@@ -12,7 +12,7 @@ class CheckoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(title: 'Chackout', actions: []),
+      appBar: customAppBar(title: 'Chackout', actions: [],context: context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         child: CustomScrollView(

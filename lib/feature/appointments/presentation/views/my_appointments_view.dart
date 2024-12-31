@@ -12,7 +12,7 @@ class MyAppointmentsView extends StatelessWidget {
     return Scaffold(
       drawerEnableOpenDragGesture: true,
       drawer: const CustomDrawerProfile(),
-      appBar: customAppBar(title: 'My Appointments'),
+      appBar: customAppBar(title: 'My Appointments',context: context),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: CustomScrollView(slivers: [

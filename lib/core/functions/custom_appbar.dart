@@ -1,7 +1,9 @@
+import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 PreferredSizeWidget customAppBar({
+  required BuildContext context,
   required String title,
   List<Widget>? actions,
   TabBar? tabBar,
@@ -17,8 +19,10 @@ PreferredSizeWidget customAppBar({
     actions: actions ??
         [
           IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () {},
+            icon: const Icon(Icons.favorite_border_rounded),
+            onPressed: () {
+              customNavigate(context, path: '/FavoritesView');
+            },
           ),
         ],
     bottom: tabBar,

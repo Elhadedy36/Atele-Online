@@ -1,7 +1,7 @@
 import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:atele_online/feature/store/data/model/product_model.dart';
+import 'package:atele_online/core/database/model/product_model.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

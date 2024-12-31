@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:atele_online/core/widgets/custom_drawer.dart';
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/feature/categories/presentation/widgets/category_item_builder.dart';
@@ -13,7 +12,7 @@ class CategoriesView extends StatelessWidget {
     return Scaffold(
       drawerEnableOpenDragGesture: true,
       drawer: const CustomDrawerProfile(),
-      appBar: customAppBar(title: AppStrings.categories),
+      appBar: customAppBar(title: AppStrings.categories, context: context),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

@@ -15,7 +15,7 @@ class AccountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppBar(title: AppStrings.accountDetails, actions: []),
+        appBar: customAppBar(title: AppStrings.accountDetails, actions: [],context: context),
         body: BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
             builder: (context, state) {
           if (state is AccountDetailsLoading) {

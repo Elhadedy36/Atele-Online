@@ -1,5 +1,5 @@
 import 'package:atele_online/core/utils/app_strings.dart';
-import 'package:atele_online/feature/store/data/model/product_model.dart';
+import 'package:atele_online/core/database/model/product_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';

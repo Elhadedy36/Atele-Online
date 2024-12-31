@@ -8,7 +8,7 @@ import 'package:atele_online/core/utils/app_text_style.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
 import 'package:atele_online/core/widgets/custom_row.dart';
 import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';
-import 'package:atele_online/feature/store/data/model/product_model.dart';
+import 'package:atele_online/core/database/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

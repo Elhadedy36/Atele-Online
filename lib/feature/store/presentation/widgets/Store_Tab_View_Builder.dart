@@ -13,7 +13,9 @@ class StoreTabViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Access category from the StoreCubit
-    final selectedCategory = context.read<SharedDataCubit>().state["selectedCategory"] as CategoryModel?;
+    final selectedCategory = context
+        .read<SharedDataCubit>()
+        .state["selectedCategory"] as CategoryModel?;
 
     if (selectedCategory == null) {
       return Scaffold(
@@ -26,6 +28,7 @@ class StoreTabViewBuilder extends StatelessWidget {
       child: Scaffold(
         appBar: customAppBar(
           title: AppStrings.weddingDress,
+          context: context,
           tabBar: const TabBar(
             indicatorColor: AppColors.primaryColor,
             labelColor: AppColors.primaryColor,
