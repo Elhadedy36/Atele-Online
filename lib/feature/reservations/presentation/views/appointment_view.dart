@@ -1,4 +1,3 @@
-import 'package:atele_online/app/atele_online.dart';
 import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
@@ -11,6 +10,7 @@ import 'package:atele_online/feature/reservations/presentation/widget/custom_sli
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class Appointment extends StatelessWidget {
   const Appointment({super.key});

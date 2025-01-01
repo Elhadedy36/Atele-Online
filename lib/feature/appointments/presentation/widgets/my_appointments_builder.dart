@@ -24,7 +24,7 @@ class MyAppointmentsBuilder extends StatelessWidget {
           },
         );}
         else if(state is GetAppointmentsDataLoading){
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(color: Colors.black,));
         }
         else if(state is GetAppointmentsDataError){
           return const Center(child: Text('Error'));

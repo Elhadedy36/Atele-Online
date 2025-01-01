@@ -65,12 +65,14 @@ final GoRouter router = GoRouter(routes: [
             create: (context) => ReserveCubit(),
             child: const CheckoutView(),
           )),
-  GoRoute(path: '/itemView', builder: (context, state) =>  ItemView()),
+  GoRoute(path: '/itemView', builder: (context, state) => const ItemView()),
   GoRoute(
       path: '/forgotPassword',
       builder: (context, state) => BlocProvider(
             create: (context) => AuthCubit(),
             child: const ForgotPasswordView(),
           )),
-  GoRoute(path: '/FavoritesView', builder: (context, state) =>   FavoritesView()),
+  GoRoute(
+      path: '/FavoritesView',
+      builder: (context, state) => const FavoritesView()),
 ]);

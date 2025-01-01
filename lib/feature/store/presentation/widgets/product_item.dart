@@ -46,7 +46,8 @@ class ProductItem extends StatelessWidget {
                       Container(
                         height: 180.h,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(16.r)),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
@@ -61,7 +62,8 @@ class ProductItem extends StatelessWidget {
                       Container(
                         height: 180.h,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(16.r)),
                           gradient: LinearGradient(
                             colors: [
                               Colors.black.withOpacity(0.6),
@@ -99,7 +101,8 @@ class ProductItem extends StatelessWidget {
                   ),
                   // Product Details
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -111,7 +114,7 @@ class ProductItem extends StatelessWidget {
                             fontSize: 14.sp,
                             color: Colors.grey[700],
                           ),
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
                         SizedBox(height: 6.h),
@@ -132,11 +135,14 @@ class ProductItem extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            SizedBox(width: 8.w), // Space between price and button
+                            SizedBox(
+                                width: 8.w), // Space between price and button
                             // View Button
                             ElevatedButton(
                               onPressed: () {
-                                context.read<SharedDataCubit>().setProduct(product);
+                                context
+                                    .read<SharedDataCubit>()
+                                    .setProduct(product);
                                 customNavigate(context, path: '/itemView');
                               },
                               style: ElevatedButton.styleFrom(
@@ -144,11 +150,13 @@ class ProductItem extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 12.w, vertical: 8.h),
                               ),
                               child: Text(
                                 'View',
-                                style: TextStyle(fontSize: 14.sp, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 14.sp, color: Colors.white),
                               ),
                             ),
                           ],

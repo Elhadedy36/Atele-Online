@@ -17,10 +17,15 @@ class StoreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ProductModel>>(
-      stream: context.read<ProductsCubit>().getProductStream(categoryName, isForRent),
+      stream: context
+          .read<ProductsCubit>()
+          .getProductStream(categoryName, isForRent),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            color: Colors.black,
+          ));
         }
 
         if (snapshot.hasError) {

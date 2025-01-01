@@ -1,4 +1,3 @@
-import 'package:atele_online/core/utils/app_assets.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/core/widgets/custom_row.dart';
 import 'package:atele_online/feature/appointments/data/appointments_model.dart';
@@ -7,9 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyAppoinmentsItem extends StatelessWidget {
   const MyAppoinmentsItem({
-    super.key, required this.model,
+    super.key,
+    required this.model,
   });
-final AppointmentsModel model;
+  final AppointmentsModel model;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -28,7 +28,7 @@ final AppointmentsModel model;
                 width: 180.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  image:  DecorationImage(
+                  image: DecorationImage(
                     image: NetworkImage(model.productImg),
                     fit: BoxFit.cover,
                   ),
@@ -88,7 +88,7 @@ final AppointmentsModel model;
               ),
               child: CustomRow(
                 title: 'Address :',
-                trallingText:model.address,
+                trallingText: model.address,
                 style1: TextStyle(
                     color: Colors.black,
                     fontSize: 12.sp,
@@ -105,7 +105,8 @@ final AppointmentsModel model;
               ),
               child: CustomRow(
                 title: 'Appointment :',
-                trallingText: '${model.appointmentsDate} at ${model.appointmentsTime}',
+                trallingText:
+                    '${model.appointmentsDate} at ${model.appointmentsTime}',
                 style1: TextStyle(
                     color: Colors.pink,
                     fontSize: 11.sp,

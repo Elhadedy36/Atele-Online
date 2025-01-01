@@ -13,7 +13,7 @@ class CategoriesView extends StatelessWidget {
       drawerEnableOpenDragGesture: true,
       drawer: const CustomDrawerProfile(),
       appBar: customAppBar(title: AppStrings.categories, context: context),
-      body: CustomScrollView(
+      body: const CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: CategoryItemBuilder(),

@@ -15,64 +15,83 @@ class AccountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppBar(title: AppStrings.accountDetails, actions: [],context: context),
-        body: BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
-            builder: (context, state) {
+      appBar: customAppBar(
+        title: AppStrings.accountDetails,
+        actions: [],
+        context: context,
+      ),
+      body: BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
+        builder: (context, state) {
           if (state is AccountDetailsLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator(color: Colors.black,));
           } else if (state is AccountDetailsLoaded) {
             final userdetails = state.accountDetailsModel;
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
-              child: Column(children: [
-                Text(
-                  AppStrings.editProfile,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 16.h),
-                CustomTextFormField(
-                  enabled: false,
-                  labelText: AppStrings.email,
-                  controller: TextEditingController(text: userdetails.email),
-                ),
-                SizedBox(height: 14.h),
-                CustomTextFormField(
-                    labelText: AppStrings.name,
-                    controller:
-                        context.read<AccountDetailsCubit>().nameControllerEdit
-                          ..text = userdetails.fristname),
-                SizedBox(height: 14.h),
-                CustomTextFormField(
-                  labelText: AppStrings.phone,
-                  controller:
-                      context.read<AccountDetailsCubit>().phoneControllerEdit
+            return SingleChildScrollView( 
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppStrings.editProfile,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 16.h),
+                    CustomTextFormField(
+                      enabled: false,
+                      labelText: AppStrings.email,
+                      controller:
+                          TextEditingController(text: userdetails.email),
+                    ),
+                    SizedBox(height: 14.h),
+                    CustomTextFormField(
+                      labelText: AppStrings.name,
+                      controller: context
+                          .read<AccountDetailsCubit>()
+                          .nameControllerEdit
+                        ..text = userdetails.fristname,
+                    ),
+                    SizedBox(height: 14.h),
+                    CustomTextFormField(
+                      labelText: AppStrings.phone,
+                      controller: context
+                          .read<AccountDetailsCubit>()
+                          .phoneControllerEdit
                         ..text = userdetails.phone,
-                ),
-                SizedBox(height: 14.h),
-                CustomTextFormField(
-                  labelText: AppStrings.city,
-                  controller:
-                      context.read<AccountDetailsCubit>().cityControllerEdit
+                    ),
+                    SizedBox(height: 14.h),
+                    CustomTextFormField(
+                      labelText: AppStrings.city,
+                      controller: context
+                          .read<AccountDetailsCubit>()
+                          .cityControllerEdit
                         ..text = userdetails.location,
+                    ),
+                    SizedBox(height: 20.h), 
+                    CustomBtn(
+                      text: 'Save',
+                      onPressed: () {
+                        context.read<AccountDetailsCubit>().editAccountDetails();
+                        showToast('Save');
+                        customNavigaeReplacement(
+                            context, path: '/HoomNavBar');
+                      },
+                      textcolor: Colors.white,
+                    ),
+                  ],
                 ),
-                const Spacer(),
-                CustomBtn(
-                    text: 'Save',
-                    onPressed: () {
-                      context.read<AccountDetailsCubit>().editAccountDetails();
-                      showToast('Save');
-                      customNavigaeReplacement(context, path: '/HoomNavBar');
-                    },
-                    textcolor: Colors.white)
-              ]),
+              ),
             );
           } else {
             return const Text('Error');
           }
-        }));
+        },
+      ),
+    );
   }
 }

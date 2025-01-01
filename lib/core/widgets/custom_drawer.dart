@@ -16,50 +16,56 @@ class CustomDrawerProfile extends StatelessWidget {
         builder: (context, state) {
           if (state is AccountDetailsLoading) {
             return const Center(
-                child: CircularProgressIndicator(
-              color: Colors.black,
-            ));
+              child: CircularProgressIndicator(
+                color: Colors.black,
+              ),
+            );
           } else if (state is AccountDetailsLoaded) {
             final userDetails = state.accountDetailsModel;
             return Drawer(
-            
-              child: Column(
-                children: [
-                  UserAccountsDrawerHeader(
-                    accountName: Text(userDetails.fristname),
-                    accountEmail: Text(userDetails.email),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
+              child: SingleChildScrollView( 
+                child: Column(
+                  children: [
+                    UserAccountsDrawerHeader(
+                      accountName: Text(userDetails.fristname),
+                      accountEmail: Text(userDetails.email),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
                           image: AssetImage(
                             Assets.imagesDrees5,
                           ),
                           fit: BoxFit.cover,
-                          scale: 2),
+                          scale: 2,
+                        ),
+                      ),
                     ),
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.account_box),
-                    title: const Text('Account'),
-                    onTap: () {
-                      customNavigate(context, path: '/AccountView');
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.logout),
-                    title: const Text('Logout'),
-                    onTap: () {
-                      context.read<AccountDetailsCubit>().signOut();
-                      CacheHelper().saveData(key: 'isSignedIn', value: false);
-                      customNavigate(context, path: '/signin');
-                    },
-                  ),
-                ],
+                    ListTile(
+                      leading: const Icon(Icons.account_box),
+                      title: const Text('Account'),
+                      onTap: () {
+                        customNavigate(context, path: '/AccountView');
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.logout),
+                      title: const Text('Logout'),
+                      onTap: () {
+                        context.read<AccountDetailsCubit>().signOut();
+                        CacheHelper().saveData(key: 'isSignedIn', value: false);
+                        customNavigate(context, path: '/signin');
+                      },
+                    ),
+                  ],
+                ),
               ),
             );
           } else {
             return const Center(
-                child: Text('Failed to load user details.',
-                    style: TextStyle(color: Colors.white)));
+              child: Text(
+                'Failed to load user details.',
+                style: TextStyle(color: Colors.white),
+              ),
+            );
           }
         },
       ),

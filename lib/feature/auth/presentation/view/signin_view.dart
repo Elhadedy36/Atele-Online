@@ -1,7 +1,6 @@
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/functions/sliver_sized_box.dart';
 import 'package:atele_online/feature/auth/presentation/widgets/custom_sign_in_image.dart';
-import 'package:atele_online/feature/auth/presentation/widgets/forgot_password.dart';
 import 'package:atele_online/feature/auth/presentation/widgets/have_an_account_widget.dart';
 import 'package:atele_online/feature/auth/presentation/widgets/signin_form.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +18,9 @@ class SigninView extends StatelessWidget {
         slivers: [
           SliverSizedBox(120.h),
           const SliverToBoxAdapter(child: SignInImage()),
-          
           const SliverToBoxAdapter(
             child: SignInForm(),
           ),
-          
           SliverToBoxAdapter(
             child: HaveAnAccountWidget(
               text1: 'Dont have an account ?',
@@ -34,7 +31,6 @@ class SigninView extends StatelessWidget {
             ),
           ),
           SliverSizedBox(8.h),
-        
         ],
       ),
     ));
