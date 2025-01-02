@@ -23,7 +23,7 @@ class CustomDrawerProfile extends StatelessWidget {
           } else if (state is AccountDetailsLoaded) {
             final userDetails = state.accountDetailsModel;
             return Drawer(
-              child: SingleChildScrollView( 
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     UserAccountsDrawerHeader(

@@ -1,3 +1,4 @@
+import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/profile/data/model/account_details_model.dart';
 import 'package:bloc/bloc.dart';
@@ -18,15 +19,53 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
   Future<void> getUserDetails() async {
     emit(AccountDetailsLoading());
     try {
-      final docSnapshot =
-          await users.doc(FirebaseAuth.instance.currentUser!.uid).get();
-      if (docSnapshot.exists && docSnapshot.data() != null) {
-        final accountDetailsModel =
-            AccountDetailsModel.fromJson(docSnapshot.data()!);
+      // Check if data exists in Cache
+      final cachedName = CacheHelper().getData(key: 'userNameKey');
+      final cachedEmail = CacheHelper().getData(key: 'userEmailKey');
+      final cachedPhone = CacheHelper().getData(key: 'userPhoneKey');
+      final cachedLocation = CacheHelper().getData(key: 'userLocationKey');
+      final cachedLastName = CacheHelper().getData(key: 'userLastNameKey');
 
-        emit(AccountDetailsLoaded(accountDetailsModel: accountDetailsModel));
+      if (cachedName != null &&
+          cachedEmail != null &&
+          cachedPhone != null &&
+          cachedLocation != null &&
+          cachedLastName != null) {
+        // Load data from cache
+        emit(AccountDetailsLoaded(
+          accountDetailsModel: AccountDetailsModel(
+            fristname: cachedName,
+            email: cachedEmail,
+            lastname: cachedLastName,
+            phone: cachedPhone,
+            location: cachedLocation,
+          ),
+        ));
       } else {
-        emit(AccountDetailsError(message: 'User not found.'));
+        // Fetch from Firebase
+        final docSnapshot =
+            await users.doc(FirebaseAuth.instance.currentUser!.uid).get();
+        if (docSnapshot.exists && docSnapshot.data() != null) {
+          final accountDetailsModel =
+              AccountDetailsModel.fromJson(docSnapshot.data()!);
+
+          // Save to cache
+          await CacheHelper().saveData(
+              key: 'userNameKey', value: accountDetailsModel.fristname);
+          await CacheHelper()
+              .saveData(key: 'userEmailKey', value: accountDetailsModel.email);
+          await CacheHelper()
+              .saveData(key: 'userPhoneKey', value: accountDetailsModel.phone);
+          await CacheHelper().saveData(
+              key: 'userLocationKey', value: accountDetailsModel.location);
+          await CacheHelper().saveData(
+              key: 'userLastNameKey', value: accountDetailsModel.lastname);
+
+          // Emit loaded state
+          emit(AccountDetailsLoaded(accountDetailsModel: accountDetailsModel));
+        } else {
+          emit(AccountDetailsError(message: 'User not found.'));
+        }
       }
     } catch (error) {
       emit(AccountDetailsError(message: error.toString()));
@@ -45,7 +84,6 @@ class AccountDetailsCubit extends Cubit<AccountDetailsState> {
     try {
       emit(SignOutLoadingState());
       await FirebaseAuth.instance.signOut();
-
       emit(SignOutSuccessState());
     } catch (e) {
       emit(SignOutErrorState(e.toString()));

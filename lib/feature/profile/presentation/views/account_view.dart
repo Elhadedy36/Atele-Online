@@ -1,3 +1,4 @@
+import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/custom_toast.dart';
 import 'package:atele_online/core/functions/navigation.dart';
@@ -23,10 +24,13 @@ class AccountView extends StatelessWidget {
       body: BlocBuilder<AccountDetailsCubit, AccountDetailsState>(
         builder: (context, state) {
           if (state is AccountDetailsLoading) {
-            return const Center(child: CircularProgressIndicator(color: Colors.black,));
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.black,
+            ));
           } else if (state is AccountDetailsLoaded) {
             final userdetails = state.accountDetailsModel;
-            return SingleChildScrollView( 
+            return SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
                 child: Column(
@@ -51,10 +55,9 @@ class AccountView extends StatelessWidget {
                     SizedBox(height: 14.h),
                     CustomTextFormField(
                       labelText: AppStrings.name,
-                      controller: context
-                          .read<AccountDetailsCubit>()
-                          .nameControllerEdit
-                        ..text = userdetails.fristname,
+                      controller:
+                          context.read<AccountDetailsCubit>().nameControllerEdit
+                            ..text = userdetails.fristname,
                     ),
                     SizedBox(height: 14.h),
                     CustomTextFormField(
@@ -67,19 +70,25 @@ class AccountView extends StatelessWidget {
                     SizedBox(height: 14.h),
                     CustomTextFormField(
                       labelText: AppStrings.city,
-                      controller: context
-                          .read<AccountDetailsCubit>()
-                          .cityControllerEdit
-                        ..text = userdetails.location,
+                      controller:
+                          context.read<AccountDetailsCubit>().cityControllerEdit
+                            ..text = userdetails.location,
                     ),
-                    SizedBox(height: 20.h), 
+                    SizedBox(height: 20.h),
                     CustomBtn(
                       text: 'Save',
                       onPressed: () {
-                        context.read<AccountDetailsCubit>().editAccountDetails();
+                        context
+                            .read<AccountDetailsCubit>()
+                            .editAccountDetails();
+                        CacheHelper().saveData(
+                            key: 'userNameKey',
+                            value: context
+                                .read<AccountDetailsCubit>()
+                                .nameControllerEdit
+                                .text);
                         showToast('Save');
-                        customNavigaeReplacement(
-                            context, path: '/HoomNavBar');
+                        customNavigaeReplacement(context, path: '/HoomNavBar');
                       },
                       textcolor: Colors.white,
                     ),
