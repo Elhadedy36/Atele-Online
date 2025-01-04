@@ -5,7 +5,6 @@ import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_text_style.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
 import 'package:atele_online/core/widgets/custom_row.dart';
-import 'package:atele_online/feature/home/presentation/widgets/custom_hoom_nav_bar.dart';
 import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';
 import 'package:atele_online/core/database/model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCheckOutCardWidget extends StatelessWidget {
   const CustomCheckOutCardWidget({
-    super.key,
-    required this.product,
+    super.key, required this.product,
   });
   final ProductModel product;
 
@@ -51,7 +49,7 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16.h),
-
+    
                   // Product Image
                   Center(
                     child: Container(
@@ -61,7 +59,7 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         image: DecorationImage(
                           image: NetworkImage(product.productImages.isNotEmpty
-                              ? product.productImages
+                              ? product.productImages[0]
                               : 'https://via.placeholder.com/300'),
                           fit: BoxFit.cover,
                         ),
@@ -69,41 +67,32 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20.h),
-
+    
                   // Product Information Rows
-                  _buildCustomRow('Type:', product.isForRent ? 'Rent' : 'Sale',
-                      Colors.orange),
-                  _buildCustomRow(
-                      'Product Name:', product.productName, Colors.black),
-                  _buildCustomRow(
-                      'Category:', product.categoryName, Colors.black),
-                  _buildCustomRow(
-                      'Atele Name:', product.ateleName, Colors.black),
+                  _buildCustomRow('Type:', product.isForRent ? 'Rent' : 'Sale', Colors.orange),
+                  _buildCustomRow('Product Name:', product.productName, Colors.black),
+                  _buildCustomRow('Category:', product.categoryName, Colors.black),
+                  _buildCustomRow('Atele Name:', product.ateleName, Colors.black),
                   _buildCustomRow('Phone:', product.phoneNumber, Colors.black),
                   _buildCustomRow('Address:', product.address, Colors.black),
                   SizedBox(height: 16.h),
-
+    
                   // Appointment Details
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 24.w),
-                    child: Divider(
-                        color: Colors.black.withOpacity(0.1), thickness: 0.8.h),
+                    child: Divider(color: Colors.black.withOpacity(0.1), thickness: 0.8.h),
                   ),
                   SizedBox(height: 10.h),
-                  _buildCustomRow(
-                      'Appointment:', '${date}, ${time}', Colors.pink),
+                  _buildCustomRow('Appointment:', '${date}, ${time}', Colors.pink),
                   Divider(color: Colors.grey[400], thickness: 0.5.h),
-
+    
                   // Payment Details
-                  _buildCustomRow('Deposit Amount:',
-                      product.depositeAmount.toString(), Colors.pink),
+                  _buildCustomRow('Deposit Amount:', product.depositeAmount.toString(), Colors.pink),
                   Divider(color: Colors.grey[400], thickness: 0.5.h),
-                  _buildCustomRow(
-                      'Price:', product.price.toString(), Colors.pink),
+                  _buildCustomRow('Price:', product.price.toString(), Colors.pink),
                   Divider(color: Colors.grey[400], thickness: 0.5.h),
-                  _buildCustomRow('Rest:',
-                      '${product.price - product.depositeAmount}', Colors.pink),
-
+                  _buildCustomRow('Rest:', '${product.price - product.depositeAmount}', Colors.pink),
+    
                   // Buy Button
                   SizedBox(height: 20.h),
                   Padding(
@@ -113,24 +102,19 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                       textcolor: Colors.white,
                       onPressed: () async {
                         try {
-                          int ammount = (product.depositeAmount * 100).toInt();
+                          int ammount=(product.depositeAmount *100).toInt();
                           await PaymentManager.MakePayment(ammount, 'USD');
-
-                          context
-                              .read<ReserveCubit>()
-                              .addAppointment(product, date, time);
-
-                          HomeNavBarWidget controller =
-                              const HomeNavBarWidget();
-                          controller.navigateToMyAppointments();
+                          
+                          context.read<ReserveCubit>().addAppointment(product, date, time);
                           customNavigate(context, path: '/HoomNavBar');
+    
                         } catch (e) {
                           showToast('Payment not completed successfully');
                         }
                       },
                     ),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 20.h), 
                 ],
               ),
             );

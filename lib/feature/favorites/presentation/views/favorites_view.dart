@@ -42,7 +42,7 @@ class FavoritesView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                             child: product.productImages.isNotEmpty
                                 ? Image.network(
-                                    product.productImages,
+                                    product.productImages[0],
                                     width: 60,
                                     height: 60,
                                     fit: BoxFit.cover,

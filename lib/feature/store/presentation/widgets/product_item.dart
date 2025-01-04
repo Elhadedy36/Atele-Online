@@ -52,7 +52,7 @@ class ProductItem extends StatelessWidget {
                             fit: BoxFit.cover,
                             image: NetworkImage(
                               product.productImages.isNotEmpty
-                                  ? product.productImages
+                                  ? product.productImages[0]
                                   : 'https://via.placeholder.com/300',
                             ),
                           ),
