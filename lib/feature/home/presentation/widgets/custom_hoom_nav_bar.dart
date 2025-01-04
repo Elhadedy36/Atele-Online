@@ -27,6 +27,11 @@ class HomeNavBarWidget extends StatelessWidget {
       ),
     );
   }
+
+
+  void navigateToMyAppointments() {
+  _controller.jumpToTab(2); 
+}
 }
 
 List<Widget> _buildScreens() {
