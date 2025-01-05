@@ -5,6 +5,7 @@ import 'package:atele_online/core/functions/navigation.dart';
 import 'package:atele_online/core/utils/app_text_style.dart';
 import 'package:atele_online/core/widgets/custom_button.dart';
 import 'package:atele_online/core/widgets/custom_row.dart';
+import 'package:atele_online/feature/home/presentation/widgets/custom_hoom_nav_bar.dart';
 import 'package:atele_online/feature/reservations/presentation/cubit/reserve_cubit.dart';
 import 'package:atele_online/core/database/model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -106,6 +107,9 @@ class CustomCheckOutCardWidget extends StatelessWidget {
                           await PaymentManager.MakePayment(ammount, 'USD');
                           
                           context.read<ReserveCubit>().addAppointment(product, date, time);
+                          HomeNavBarWidget controller =
+                              const HomeNavBarWidget();
+                          controller.jumpToTab(2);
                           customNavigate(context, path: '/HoomNavBar');
     
                         } catch (e) {

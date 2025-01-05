@@ -29,8 +29,8 @@ class HomeNavBarWidget extends StatelessWidget {
   }
 
 
-  void navigateToMyAppointments() {
-  _controller.jumpToTab(2); 
+  void jumpToTab(int index) {
+  _controller.jumpToTab(index); 
 }
 }
 
