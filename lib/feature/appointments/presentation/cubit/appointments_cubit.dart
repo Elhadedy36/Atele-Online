@@ -10,29 +10,33 @@ part 'appointments_state.dart';
 class AppointmentsCubit extends Cubit<AppointmentsState> {
   AppointmentsCubit() : super(AppointmentsInitial());
   final _firestore = FirebaseFirestore.instance;
- List<AppointmentsModel> appointmentsList=[];
+  List<AppointmentsModel> appointmentsList = [];
 
-  getAppointmentsData() async
-  {
-   
-
+  getAppointmentsData() async {
     try {
-       emit(GetAppointmentsDataLoading());
-  await _firestore.collection(FirebaseStrings.users).doc(FirebaseAuth.instance.currentUser!.uid).collection(FirebaseStrings.appointments).get().then((snapshot) {
-    
-     appointmentsList = snapshot.docs.map((doc) {
-      return AppointmentsModel.fromJson(doc.data());
-    }).toList();
+      emit(GetAppointmentsDataLoading());
 
-  
-  });
+      final snapshot = await _firestore
+          .collection(FirebaseStrings.users)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection(FirebaseStrings.appointments)
+          .get();
+
+      appointmentsList = snapshot.docs.map((doc) {
+        return AppointmentsModel.fromJson(doc.data());
+      }).toList();
+
+      appointmentsList.sort((a, b) {
+        final dateComparison = b.appointmentsDate.compareTo(a.appointmentsDate);
+        if (dateComparison == 0) {
+          return b.appointmentsTime.compareTo(a.appointmentsTime);
+        }
+        return dateComparison;
+      });
+
       emit(GetAppointmentsDataSuccess(appointmentsModel: appointmentsList));
-
-} on Exception catch (e) {
- 
-  emit(GetAppointmentsDataError(message: e.toString()));
-}
-
+    } on Exception catch (e) {
+      emit(GetAppointmentsDataError(message: e.toString()));
+    }
   }
-
 }
