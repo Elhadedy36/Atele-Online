@@ -37,10 +37,11 @@ class ReserveCubit extends Cubit<ReserveState> {
         FirebaseStrings.depositeAmount: product.depositeAmount,
         FirebaseStrings.price: product.price,
         FirebaseStrings.rest: product.price - product.depositeAmount,
-        FirebaseStrings.productsImages: product.productImages[0],
+        FirebaseStrings.productsImages: product.productImages,
         FirebaseStrings.isForRent: product.isForRent,
         FirebaseStrings.productId: product.productId,
         FirebaseStrings.userId: FirebaseAuth.instance.currentUser!.uid,
+        FirebaseStrings.status: FirebaseStrings.statusPending,
       });
 
       String appointmentId = docRef.id;
@@ -60,11 +61,12 @@ class ReserveCubit extends Cubit<ReserveState> {
         FirebaseStrings.depositeAmount: product.depositeAmount,
         FirebaseStrings.price: product.price,
         FirebaseStrings.rest: product.price - product.depositeAmount,
-        FirebaseStrings.productsImages: product.productImages[0],
+        FirebaseStrings.productsImages: product.productImages,
         FirebaseStrings.isForRent: product.isForRent,
         FirebaseStrings.productId: product.productId,
         FirebaseStrings.userId: FirebaseAuth.instance.currentUser!.uid,
         FirebaseStrings.appointmentId: appointmentId,
+        FirebaseStrings.status: FirebaseStrings.statusPending,
       });
       await updateStock(product);
     } catch (e) {

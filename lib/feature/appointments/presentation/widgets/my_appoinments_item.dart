@@ -29,7 +29,7 @@ class MyAppoinmentsItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    image: NetworkImage(model.productImg),
+                    image: NetworkImage(model.productImg[0]),
                     fit: BoxFit.cover,
                   ),
                 )),
@@ -116,7 +116,24 @@ class MyAppoinmentsItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 4.h),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 24.w,
+              ),
+              child: CustomRow(
+                title: 'Status :',
+                trallingText:
+                    '${model.status}',
+                style1: TextStyle(
+                    color: Colors.pink,
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.bold),
+                style2: TextStyle(
+                  fontSize: 12.sp,
+                ),
+              ),
+            ),
           ],
         ));
   }

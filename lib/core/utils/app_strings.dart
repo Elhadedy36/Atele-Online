@@ -52,6 +52,10 @@ abstract class FirebaseStrings {
   static const String appointmentDate = 'appointmentDate';
   static const String appointmentTime = 'appointmentTime';
   static const String depositPaid = 'DepositPaid :';
+
+  static const String statusPending = 'Pending';
+  static const String statusApproved = 'Approved';
+  static const String statusrejected = 'Rejected';
 /* products related */
   static const String products = 'Products';
   static const String productName = 'productName';
