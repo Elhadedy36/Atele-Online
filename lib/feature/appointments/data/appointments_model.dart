@@ -16,24 +16,25 @@ class AppointmentsModel {
   final bool isForRent;
   final String productId;
   final String status;
+  final String appointmentId;
 
-  AppointmentsModel({
-    required this.isForRent,
-    required this.categoryName,
-    required this.appointmentsTime,
-    required this.price,
-    required this.rest,
-    required this.productImg,
-    required this.appointmentsDate,
-    required this.productName,
-    required this.ateleName,
-    required this.depositeAmount,
-    required this.address,
-    required this.phoneNumber,
-    required this.userId,
-    required this.productId,
-    required this.status,
-  });
+  AppointmentsModel(
+      {required this.isForRent,
+      required this.categoryName,
+      required this.appointmentsTime,
+      required this.price,
+      required this.rest,
+      required this.productImg,
+      required this.appointmentsDate,
+      required this.productName,
+      required this.ateleName,
+      required this.depositeAmount,
+      required this.address,
+      required this.phoneNumber,
+      required this.userId,
+      required this.productId,
+      required this.status,
+      required this.appointmentId});
 
   factory AppointmentsModel.fromJson(Map<String, dynamic> json) {
     return AppointmentsModel(
@@ -52,6 +53,7 @@ class AppointmentsModel {
       isForRent: json[FirebaseStrings.isForRent],
       productId: json[FirebaseStrings.productId],
       status: json[FirebaseStrings.status],
+      appointmentId: json[FirebaseStrings.appointmentId],
     );
   }
 }
