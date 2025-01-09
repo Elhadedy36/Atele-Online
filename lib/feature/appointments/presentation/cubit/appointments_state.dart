@@ -1,4 +1,6 @@
-part of 'appointments_cubit.dart';
+
+import 'package:atele_online/feature/appointments/data/appointments_model.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 sealed class AppointmentsState {}

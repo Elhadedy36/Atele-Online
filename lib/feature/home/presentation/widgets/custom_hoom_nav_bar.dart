@@ -39,7 +39,7 @@ List<Widget> _buildScreens() {
     const HomeView(),
     const CategoriesView(),
     BlocProvider(
-      create: (context) => AppointmentsCubit()..getAppointmentsData(),
+      create: (context) => AppointmentsCubit(),
       child: const MyAppointmentsView(),
     ),
   ];
