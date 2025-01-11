@@ -2,7 +2,7 @@ import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
-import 'package:atele_online/core/database/model/product_model.dart';
+import 'package:atele_online/core/models/product_model.dart';
 import 'package:atele_online/feature/store/presentation/views/items_view.dart';
 
 class FavoritesView extends StatelessWidget {

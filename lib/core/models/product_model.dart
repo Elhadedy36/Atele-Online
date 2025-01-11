@@ -14,7 +14,7 @@ class ProductModel {
   final double price;
   final String phoneNumber;
   final int stock;
-
+  final int viewsCount;
   ProductModel({
     required this.productId,
     required this.ateleName,
@@ -29,12 +29,15 @@ class ProductModel {
     required this.price,
     required this.phoneNumber,
     required this.stock,
+    required this.viewsCount,
   });
 
   // Factory constructor to create a ProductModel from a JSON map
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     // Ensure that productImages is a List<String>, provide an empty list if null
-    final List<String> images = (json[FirebaseStrings.productsImages] as List?)?.cast<String>() ?? <String>[];
+    final List<String> images =
+        (json[FirebaseStrings.productsImages] as List?)?.cast<String>() ??
+            <String>[];
 
     return ProductModel(
       productId: json[FirebaseStrings.productId],
@@ -50,6 +53,7 @@ class ProductModel {
       price: json[FirebaseStrings.price],
       phoneNumber: json[FirebaseStrings.phoneNumber],
       stock: json[FirebaseStrings.stock],
+      viewsCount: json[FirebaseStrings.viewsCount],
     );
   }
 }

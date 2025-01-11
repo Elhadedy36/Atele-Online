@@ -1,7 +1,7 @@
 import 'package:atele_online/core/database/cache/cache_helper.dart';
 import 'package:atele_online/core/utils/app_strings.dart';
 import 'package:atele_online/feature/categories/data/model/category_model.dart';
-import 'package:atele_online/core/database/model/product_model.dart';
+import 'package:atele_online/core/models/product_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

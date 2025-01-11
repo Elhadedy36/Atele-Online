@@ -44,6 +44,7 @@ abstract class FirebaseStrings {
   static const String address = 'address';
   static const String createdAt = 'createdAt';
   static const String ateleName = 'ateleName';
+  static const String viewedBy = 'viewedBy';
 
   /* */
   static const String appointments = 'appointments';
@@ -64,6 +65,8 @@ abstract class FirebaseStrings {
   static const String isForRent = 'isForRent';
   static const String depositeAmount = 'depositeAmount';
   static const String productsImages = 'productImages';
+  static const String viewsCount = 'viewsCount';
+
 /* Sellers related */
   static const String sellerId = 'sellerId';
   static const String sellers = 'Sellers';

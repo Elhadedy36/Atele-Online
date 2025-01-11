@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:atele_online/feature/store/presentation/cubit/cubit/products_cubit.dart';
-import 'package:atele_online/core/database/model/product_model.dart';
+import 'package:atele_online/core/models/product_model.dart';
 import 'package:atele_online/feature/store/presentation/widgets/product_item_grid_builder.dart';
 
 class StoreView extends StatelessWidget {

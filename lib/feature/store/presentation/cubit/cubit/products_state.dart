@@ -1,4 +1,6 @@
-part of 'products_cubit.dart';
+
+import 'package:atele_online/core/models/product_model.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 sealed class ProductsState {}

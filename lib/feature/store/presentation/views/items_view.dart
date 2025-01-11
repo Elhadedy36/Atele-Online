@@ -1,5 +1,5 @@
 import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
-import 'package:atele_online/core/database/model/product_model.dart';
+import 'package:atele_online/core/models/product_model.dart';
 import 'package:atele_online/core/functions/custom_appbar.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:carousel_slider/carousel_slider.dart';

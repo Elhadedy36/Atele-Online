@@ -1,7 +1,8 @@
 import 'package:atele_online/core/cubits/cubit/shared_data_cubit.dart';
+import 'package:atele_online/feature/store/presentation/cubit/cubit/products_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:atele_online/core/database/model/product_model.dart';
+import 'package:atele_online/core/models/product_model.dart';
 import 'package:atele_online/core/functions/navigation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,6 +24,7 @@ class ProductItem extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             context.read<SharedDataCubit>().setProduct(product);
+            context.read<ProductsCubit>().updateViews(product.productId);
             customNavigate(context, path: '/itemView');
           },
           child: ConstrainedBox(
