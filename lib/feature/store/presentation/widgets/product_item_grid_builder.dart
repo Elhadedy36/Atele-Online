@@ -24,8 +24,7 @@ class ProductItemGridBuilder extends StatelessWidget {
         mainAxisExtent: 350,
       ),
       itemBuilder: (context, index) {
-        final product = products[index];
-        return ProductItem(product: product);
+        return ProductItem(product: products[index]);
       },
     );
   }

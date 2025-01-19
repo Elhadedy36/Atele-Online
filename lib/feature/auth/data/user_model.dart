@@ -6,9 +6,8 @@ class UserModel {
   final String location;
   final String uId;
 
-  UserModel( 
+  UserModel(
       {required this.fristname,
-
       required this.lastname,
       required this.email,
       required this.location,

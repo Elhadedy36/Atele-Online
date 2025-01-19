@@ -17,10 +17,12 @@ class ReserveCubit extends Cubit<ReserveState> {
       FirebaseFirestore.instance.collection(FirebaseStrings.appointments);
   final CollectionReference _firestoreProduct =
       FirebaseFirestore.instance.collection(FirebaseStrings.products);
+
   final CollectionReference _firestoreSubUser = FirebaseFirestore.instance
       .collection(FirebaseStrings.users)
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .collection(FirebaseStrings.appointments);
+
   final CollectionReference _firestoreSubSeller =
       FirebaseFirestore.instance.collection(FirebaseStrings.sellers);
 
@@ -57,18 +59,21 @@ class ReserveCubit extends Cubit<ReserveState> {
       });
 
       await _firestoreSubUser.doc(appointmentId).set(appointmentsData);
+
       await _firestoreSubUser.doc(appointmentId).update({
         FirebaseStrings.appointmentId: appointmentId,
       });
-      final productData = await getProductById(product.productId);
+
+      // final productData = await getProductById(product.productId);
+
       await _firestoreSubSeller
-          .doc(productData![FirebaseStrings.sellerId])
+          .doc(product.sellerId)
           .collection(FirebaseStrings.appointments)
           .doc(appointmentId)
           .set(appointmentsData);
           
       await _firestoreSubSeller
-          .doc(productData![FirebaseStrings.sellerId])
+          .doc(product.sellerId)
           .collection(FirebaseStrings.appointments)
           .doc(appointmentId)
           .update({
@@ -91,14 +96,14 @@ class ReserveCubit extends Cubit<ReserveState> {
     }
   }
 
-  Future<Map<String, dynamic>?> getProductById(String productId) async {
-    try {
-      DocumentSnapshot productSnapshot =
-          await _firestoreProduct.doc(productId).get();
-      return productSnapshot.data() as Map<String, dynamic>;
-    } catch (e) {
-      print('Error getting product by ID: $e');
-      return null;
-    }
-  }
+  // Future<Map<String, dynamic>?> getProductById(String productId) async {
+  //   try {
+  //     DocumentSnapshot productSnapshot =
+  //         await _firestoreProduct.doc(productId).get();
+  //     return productSnapshot.data() as Map<String, dynamic>;
+  //   } catch (e) {
+  //     print('Error getting product by ID: $e');
+  //     return null;
+  //   }
+  // }
 }
