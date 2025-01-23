@@ -44,22 +44,43 @@ class _CustomDateAndTimeState extends State<CustomDateAndTime> {
             CustomTextFormField(
               controller: context.read<ReserveCubit>().dateController,
               labelText: 'Pick Your Date',
-              onTap: () async {
-                final dateTime = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime.now(),
-                  lastDate: DateTime(2027),//cant select any date after 2027
-                );
-                if (dateTime != null) {
-                  final formattedDate = DateFormat('yyyy-MM-dd').format(dateTime);
-                  setState(() {
-                    context.read<ReserveCubit>().dateController.text = formattedDate;
-                    generateAvailableTimes();
-                    selectedTime = null; // Reset selected time
-                  });
-                }
+           onTap: () async {
+  final dateTime = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime.now(),
+    lastDate: DateTime(2027), // Can't select any date after 2027
+  );
+  if (dateTime != null) {
+    // Check if the selected date is Friday (5) or Saturday (6)
+    if (dateTime.weekday == 5 || dateTime.weekday == 6) {
+      // Show a warning or message to the user
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Unavailable Date'),
+          content: Text('Fridays and Saturdays are unavailable for booking. Please select a different day.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
               },
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    } else {
+      final formattedDate = DateFormat('yyyy-MM-dd').format(dateTime);
+      setState(() {
+        context.read<ReserveCubit>().dateController.text = formattedDate;
+        generateAvailableTimes();
+        selectedTime = null; // Reset selected time
+      });
+    }
+  }
+},
+
             ),
             SizedBox(height: 20.h),
             if (availableTimes.isNotEmpty) ...[
