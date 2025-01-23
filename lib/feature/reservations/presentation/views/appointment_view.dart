@@ -31,7 +31,7 @@ class Appointment extends StatelessWidget {
           const SliverToBoxAdapter(
             child: CustomDateAndTime(),
           ),
-          SliverSizedBox(280.h),
+          
           SliverToBoxAdapter(
             child: CustomBtn(
               text: 'Next',
